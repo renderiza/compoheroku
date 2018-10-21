@@ -13,8 +13,43 @@
 				= link_to root_path do
 					= image_tag "logo.svg"
 
+				= text_field_tag :search
+
+		
+			- if user_signed_in?
+				%ul.nav.navbar-nav.navbar-right
+					%li
+						= link_to new_scene_path, class: ""  do
+							.glyphicon.glyphicon-plus.tip{"data-placement" => "bottom", "data-tip" => "tip-new"}
+
+					%li
+						= link_to edit_user_registration_path, class: ""  do
+							.glyphicon.glyphicon-user.tip{"data-placement" => "bottom", "data-tip" => "tip-account"}
+
+					%li
+						= link_to destroy_user_session_path, method: :delete do
+							.glyphicon.glyphicon-log-out.tip{"data-placement" => "bottom", "data-tip" => "tip-logout"}
+			-else
+				%ul.nav.navbar-nav.navbar-right
+					%li= link_to "Sign Up", new_user_registration_path
+					%li= link_to "Log In", new_user_session_path
+
 	.container
 
 		- flash.each do |name, msg|
 			= content_tag :div, msg, class: "alert alert-info"
 		= yield
+
+	%br/
+	%br/
+	%br/
+	%br/
+	%br/
+	%br/
+
+/ Footer
+%footer
+	/ Copyright
+	.footer-copyright.text-center.py-3
+		= link_to "https://composcene.com/", :target => "_blank", class: ""  do
+			= image_tag "compo.svg"

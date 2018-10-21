@@ -1,5 +1,43 @@
-= link_to "New Scene", new_scene_path
 - @scenes.each do |scene|
 	.box.panel.panel-default
+
+
+
+
+
 		.panel-body	
 			%h5= link_to scene.name, scene
+
+.box.panel.panel-default
+	.panel-body	
+		= link_to new_scene_path, class: ""  do
+			.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onmouseover => "JavaScript:play()"}
+
+/ Tips content
+#tip-new.tip-content.hidden
+	%p New Scene
+#tip-account.tip-content.hidden
+	%p Account
+#tip-logout.tip-content.hidden
+	%p Log Out
+
+:javascript
+
+	function myScene( name, description, shadows, light, dark, use_sun, fog, rop ){
+		sketchup.say( name, description, shadows, light, dark, use_sun, fog, rop );
+	}
+
+	// Audio
+	function play(){
+		var audio = document.getElementById("audio");
+		audio.play();
+	}
+
+	// Tooltips
+	$('.tip').each(function () {
+		$(this).tooltip(
+		{
+			html: true,
+			title: $('#' + $(this).data('tip')).html()
+		});
+	});
