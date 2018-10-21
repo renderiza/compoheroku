@@ -9,11 +9,11 @@ class ScenesController < ApplicationController
 	end
 
 	def new
-		@scene = Scene.new
+		@scene = current_user.scenes.build
 	end
 
 	def create
-		@scene = Scene.new(scene_params)
+		@scene = current_user.scenes.build(scene_params)
 
 		if @scene.save
 			redirect_to @scene, notice: "Successfully created new Scene"
@@ -51,4 +51,4 @@ class ScenesController < ApplicationController
 		@scene = Scene.find(params[:id])
 	end
 
-end
+end ####
