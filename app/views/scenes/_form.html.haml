@@ -1,0 +1,17 @@
+= simple_form_for @scene, html: { multipart: true } do |f|
+	- if @scene.errors.any?
+		#errors
+			%h2
+			= pluralize(@scene.errors.count, "error")
+			prevented this Scene from saving
+			%ul
+				- @scene.errors.full_messages.each do |msg|
+					%li = msg
+
+	.form-group
+		= f.input :name, input_htm: { class: 'form-control' }
+
+	.form-group
+		= f.input :description, input_htm: { class: 'form-control' }
+
+	= f.button :submit, class: "btn btn-primary"

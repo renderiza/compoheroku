@@ -1,0 +1,20 @@
+#scene_show.row
+	.col-md-8.col-md-offset-2
+		.panel.panel-default
+
+			.panel-body
+				%h1= @scene.name
+				%p.description= @scene.description
+
+
+
+			.panel-footer
+				.row
+				
+					.col-md-6
+						.btn-group.pull-right
+							= link_to "Back", root_path, class: "btn btn-default"
+
+							= link_to "Edit", edit_scene_path, class: "btn btn-default"
+
+							= link_to "Delete", scene_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default"

@@ -1,0 +1,5 @@
+= link_to "New Scene", new_scene_path
+- @scenes.each do |scene|
+	.box.panel.panel-default
+		.panel-body	
+			%h5= link_to scene.name, scene
