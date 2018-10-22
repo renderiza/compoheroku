@@ -7,6 +7,9 @@
 			%ul
 				- @scene.errors.full_messages.each do |msg|
 					%li = msg
+	
+	.form-group
+		= f.input :image, as: :file, input_htm: { class: 'form-control' }
 
 	.form-group
 		= f.input :name, input_htm: { class: 'form-control' }

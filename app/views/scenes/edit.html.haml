@@ -5,6 +5,9 @@
 				%h1 Edit Scene
 
 			.panel-body
+				%strong.center Current Image
+				%br/
+				= image_tag @scene.image.url(:medium)
 				= render 'form'
 
 

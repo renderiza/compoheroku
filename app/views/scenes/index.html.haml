@@ -1,15 +1,17 @@
 - @scenes.each do |scene|
 	.box.panel.panel-default
-
-
-
+		/= link_to (image_tag scene.image.url(:medium)), scene
+		
+		%audio#audio{:src => audio_path("pick.wav")}
+		%a{:href => "JavaScript:play()"}
+			=image_tag( scene.image.url(:medium), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
 
 
 		.panel-body	
 			%h5= link_to scene.name, scene
 
 .box.panel.panel-default
-	.panel-body	
+	.panel-body
 		= link_to new_scene_path, class: ""  do
 			.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onmouseover => "JavaScript:play()"}
 
