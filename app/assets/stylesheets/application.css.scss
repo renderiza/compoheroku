@@ -22,6 +22,7 @@
 $dark: #3d3d3d;
 $white: #F8F8F8;
 
+
 body {
 	background: #E9E9E9;
 }
@@ -222,4 +223,50 @@ footer {
 
 .footer_image:hover {
     opacity: 1;
+}
+
+
+
+
+
+
+@media only screen and (min-width: 300px) {
+    .collapse {
+        display: block;
+    }
+
+    .navbar-header {
+        float: left;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .navbar-nav.navbar-left {
+       float: left;
+       margin: 0;
+    }
+
+    .navbar-nav.navbar-right {
+       float: right;
+       margin: 0;
+    }
+    .navbar-nav>li {
+        float: left;
+    }
+    .navbar-nav>li>a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+     .collapse {
+        display: none;
+     }
+
+     .navbar-header {
+        display: block;
+     }
 }

@@ -9,15 +9,16 @@
 %body
 	%nav.navbar.navbar-default
 		.container
-			.navbar-brand
-				= link_to root_path do
-					= image_tag "logo.svg"
+			%ul.nav.navbar-nav.navbar-left
+				%li
+					= link_to root_path do
+						= image_tag "logo.svg"
 
-				= text_field_tag :search
+					/= text_field_tag :search
 
-		
-			- if user_signed_in?
-				%ul.nav.navbar-nav.navbar-right
+			%ul.nav.navbar-nav.navbar-right
+				- if user_signed_in?
+			
 					%li
 						= link_to new_scene_path, class: ""  do
 							.glyphicon.glyphicon-plus.tip{"data-placement" => "bottom", "data-tip" => "tip-new"}
@@ -29,10 +30,10 @@
 					%li
 						= link_to destroy_user_session_path, method: :delete do
 							.glyphicon.glyphicon-log-out.tip{"data-placement" => "bottom", "data-tip" => "tip-logout"}
-			-else
-				%ul.nav.navbar-nav.navbar-right
-					%li= link_to "Sign Up", new_user_registration_path
-					%li= link_to "Log In", new_user_session_path
+				-else
+					%ul.nav.navbar-nav.navbar-right
+						%li= link_to "Sign Up", new_user_registration_path
+						%li= link_to "Log In", new_user_session_path
 
 	.container
 
