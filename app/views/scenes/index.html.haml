@@ -4,7 +4,7 @@
 		
 		%audio#audio{:src => audio_path("pick.wav")}
 		%a{:href => "JavaScript:play()"}
-			=image_tag( scene.image(:thumb), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
+			=image_tag( scene.image.url(:thumb), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
 
 
 		.panel-body	
