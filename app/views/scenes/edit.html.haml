@@ -7,7 +7,7 @@
 			.panel-body
 				%strong.center Current Image
 				%br/
-				= image_tag @scene.image.url(:medium)
+				= image_tag @scene.image(:medium)
 				= render 'form'
 
 
