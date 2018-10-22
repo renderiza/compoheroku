@@ -212,7 +212,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  aws-sdk-s3
+  aws-sdk-s3 (~> 1.21)
   bootstrap-sass (~> 3.3, >= 3.3.7)
   byebug
   coffee-rails (~> 4.2)
