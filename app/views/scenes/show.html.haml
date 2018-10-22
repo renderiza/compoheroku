@@ -2,7 +2,7 @@
 	.col-md-8.col-md-offset-2
 		.panel.panel-default
 			.panel-heading.scene_image
-				= image_tag( @scene.image.url(:medium) )
+				= image_tag @scene.image
 
 			.panel-body
 				%h1= @scene.name
