@@ -1,6 +1,7 @@
 class ScenesController < ApplicationController
 	before_action :find_scene, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
+	before_action :correct_user, only: [:edit, :update, :destroy]
 
 	def index
 		@scenes = Scene.all
@@ -51,6 +52,11 @@ class ScenesController < ApplicationController
 
 	def find_scene
 		@scene = Scene.find(params[:id])
+	end
+
+	def correct_user
+		@scene = current_user.scenes.find_by(id: params[:id])
+		redirect_to scenes_path, notice: "Not authorized to edit this scene" if @scene.nil?
 	end
 
 end ####
