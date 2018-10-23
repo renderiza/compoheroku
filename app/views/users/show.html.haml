@@ -1,4 +1,8 @@
-- @scenes.each do |scene|
+%h3= @user.username
+%p Bio goes here.
+
+
+- @user.scenes.each do |scene|
 	.box.panel.panel-default
 		/= link_to (image_tag scene.image.url(:medium)), scene
 		
@@ -10,9 +14,7 @@
 		.panel-body	
 			%h5= link_to scene.name, scene
 
-			= link_to user_path(scene.user.username), class: ""  do
-				%h5= scene.user.username
-				
+			%h5= link_to scene.user.username, user_path(scene.user.username)
 
 .box.panel.panel-default
 	.panel-body
