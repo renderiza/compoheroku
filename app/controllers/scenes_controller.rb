@@ -18,7 +18,7 @@ class ScenesController < ApplicationController
 		@scene = current_user.scenes.build(scene_params)
 
 		if @scene.save
-			redirect_to @scene, notice: "Successfully created new Scene"
+			redirect_to scenes_path, notice: "Successfully created new Scene"
 		else
 			render 'new'
 		end
