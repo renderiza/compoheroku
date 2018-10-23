@@ -4,12 +4,10 @@
 
 - @user.scenes.each do |scene|
 	.box.panel.panel-default
-		/= link_to (image_tag scene.image.url(:medium)), scene
-		
+
 		%audio#audio{:src => audio_path("pick.wav")}
 		%a{:href => "JavaScript:play()"}
 			=image_tag( scene.image.url(:thumb), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
-
 
 		.panel-body	
 			%h5= link_to scene.name, scene

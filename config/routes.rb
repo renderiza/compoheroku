@@ -5,5 +5,4 @@ Rails.application.routes.draw do
 	get ':username' => 'users#show', as: 'user'
 
 	root "scenes#index"
-
 end

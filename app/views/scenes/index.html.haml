@@ -1,6 +1,6 @@
 - @scenes.each do |scene|
 	.box.panel.panel-default
-		/= link_to (image_tag scene.image.url(:medium)), scene
+		= link_to (image_tag scene.image.url(:medium)), scene
 		
 		%audio#audio{:src => audio_path("pick.wav")}
 		%a{:href => "JavaScript:play()"}
