@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181023231337) do
+ActiveRecord::Schema.define(version: 20181024012110) do
 
   create_table "scenes", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20181023231337) do
     t.string   "image_content_type"
     t.bigint   "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "original_scene_id"
     t.index ["user_id"], name: "index_scenes_on_user_id"
   end
 

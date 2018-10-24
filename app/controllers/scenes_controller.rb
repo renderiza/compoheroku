@@ -1,5 +1,5 @@
 class ScenesController < ApplicationController
-	before_action :find_scene, only: [:show, :edit, :update, :destroy]
+	before_action :find_scene, only: [:show, :edit, :update, :destroy, :repost]
 	before_action :authenticate_user!, except: [:index, :show]
 	before_action :correct_user, only: [:edit, :update, :destroy]
 
@@ -38,6 +38,11 @@ class ScenesController < ApplicationController
 	def destroy
 		@scene.destroy
 		redirect_to root_path
+	end
+
+	def repost
+		@scene.repost(current_user)
+		redirect_to scenes_path
 	end
 
 	private

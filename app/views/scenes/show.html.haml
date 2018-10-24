@@ -27,3 +27,5 @@
 								= link_to "Edit", edit_scene_path, class: "btn btn-default"
 
 								= link_to "Delete", scene_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default"
+							- if user_signed_in? &&  @scene.user != current_user
+								= link_to "Repost", repost_scene_path(@scene), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-default"
