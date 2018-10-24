@@ -14,8 +14,9 @@
 				.row
 					.col-md-6
 						%p.user
-						Submitted by
-						= @scene.user.username
+							Submitted by
+							= link_to user_path(@scene.user.username), class: ""  do
+								= @scene.user.username
 				
 					.col-md-6
 						.btn-group.pull-right

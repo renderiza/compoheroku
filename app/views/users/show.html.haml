@@ -1,5 +1,7 @@
+
+= image_tag @user.avatar.url(:thumb)
 %h3= @user.username
-%p Bio goes here.
+%p= @user.bio
 
 
 - @user.scenes.each do |scene|

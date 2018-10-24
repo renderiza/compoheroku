@@ -35,6 +35,20 @@ li {
     padding-bottom: 0px;
 }
 
+h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+a.username {
+    color: #B7B7B7;
+    text-decoration: none;
+}
+a.username:hover {
+    color: #868686;
+    text-decoration: none;
+}
+
 .navbar-nav > li > a {
 	margin: 2px;
 	padding-left: 4px;
@@ -92,7 +106,7 @@ li {
 }
 
 .panel-body {
-	padding: 16px;
+	padding: 4px;
 	h1 {
 		margin: 0 0 10px 0;
 	}

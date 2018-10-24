@@ -6,10 +6,10 @@
 			=image_tag( scene.image.url(:thumb), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
 
 		.panel-body	
-			%h5= link_to scene.name, scene
+			%h4= link_to scene.name, scene
 
-			= link_to user_path(scene.user.username), class: ""  do
-				%h5= scene.user.username
+			= link_to user_path(scene.user.username), class: "username"  do
+				%p= scene.user.username
 				
 
 .box.panel.panel-default
