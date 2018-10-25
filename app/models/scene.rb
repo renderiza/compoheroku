@@ -1,5 +1,6 @@
 class Scene < ApplicationRecord
 	belongs_to :user
+	belongs_to :board
 	has_attached_file :image, 
 		path: ":rails_root/public/system/:attachment/:id/:style/:filename",
 		url: "/system/:attachment/:id/:style/:filename", 

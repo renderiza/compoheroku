@@ -1,0 +1,18 @@
+%h2 All Boards
+
+.box.panel.panel-default
+	.panel-body
+		= link_to new_board_path, class: ""  do
+			.glyphicon.glyphicon-plus.big
+
+
+- @boards.each do |board|
+
+	.box.panel.panel-default
+		
+		.panel-body	
+
+			%h5= board.name
+
+			%h6= link_to 'edit', edit_board_path(board)
+			%h6= link_to 'delete', board, method: :delete

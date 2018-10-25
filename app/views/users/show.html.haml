@@ -1,51 +1,21 @@
 
-= image_tag @user.avatar.url(:thumb)
+= image_tag @user.avatar.url(:thumb), class: "avatar"
 %h3= @user.username
 %p= @user.bio
 
 
-- @user.scenes.each do |scene|
-	.box.panel.panel-default
-
-		%audio#audio{:src => audio_path("pick.wav")}
-		%a{:href => "JavaScript:play()"}
-			=image_tag( scene.image.url(:thumb), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
-
-		.panel-body	
-			%h5= link_to scene.name, scene
-
-			%h5= link_to scene.user.username, user_path(scene.user.username)
+%h3 My Boards
 
 .box.panel.panel-default
 	.panel-body
-		= link_to new_scene_path, class: ""  do
-			.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
+		= link_to new_board_path, class: ""  do
+			.glyphicon.glyphicon-plus.big
 
-/ Tips content
-#tip-new.tip-content.hidden
-	%p New Scene
-#tip-account.tip-content.hidden
-	%p Account
-#tip-logout.tip-content.hidden
-	%p Log Out
+- @user.boards.each do |board|
 
-:javascript
+	.box.panel.panel-default
 
-	function myScene( name, description, shadows, light, dark, use_sun, fog, rop ){
-		sketchup.say( name, description, shadows, light, dark, use_sun, fog, rop );
-	}
+		.panel-body	
+			%h5= link_to board.name, board
 
-	// Audio
-	function play(){
-		var audio = document.getElementById("audio");
-		audio.play();
-	}
-
-	// Tooltips
-	$('.tip').each(function () {
-		$(this).tooltip(
-		{
-			html: true,
-			title: $('#' + $(this).data('tip')).html()
-		});
-	});
+			/%h5= link_to board.user.username, user_path(board.user.username)

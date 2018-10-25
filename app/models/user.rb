@@ -5,6 +5,7 @@ class User < ApplicationRecord
 		:recoverable, :rememberable, :validatable
 	
 	has_many :scenes
+	has_many :boards
 
 	validates_uniqueness_of :username
 

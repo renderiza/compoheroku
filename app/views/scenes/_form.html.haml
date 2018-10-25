@@ -17,4 +17,14 @@
 	.form-group
 		= f.input :description, input_htm: { class: 'form-control' }
 
+	
+	.form-group
+		= f.label :board
+		%br/
+		= f.select :board_id, options_from_collection_for_select(current_user.boards, "id", "name")
+	
+	%br/
+	%br/
 	= f.button :submit, class: "btn btn-primary"
+	%br/
+	%br/

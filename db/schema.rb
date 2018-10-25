@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181024012110) do
+ActiveRecord::Schema.define(version: 20181025040702) do
+
+  create_table "boards", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "scenes", force: :cascade do |t|
     t.string   "name"
@@ -23,6 +30,7 @@ ActiveRecord::Schema.define(version: 20181024012110) do
     t.bigint   "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "original_scene_id"
+    t.integer  "board_id"
     t.index ["user_id"], name: "index_scenes_on_user_id"
   end
 

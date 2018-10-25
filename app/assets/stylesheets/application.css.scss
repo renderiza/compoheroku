@@ -22,6 +22,18 @@
 $dark: #3d3d3d;
 $white: #F8F8F8;
 
+img.avatar {
+    width: 96px;
+    height: 96px;
+    background-size: cover;
+    display: block;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
 
 body {
 	background: #E9E9E9;
@@ -43,11 +55,29 @@ h4, .h4, h5, .h5, h6, .h6 {
 a.username {
     color: #B7B7B7;
     text-decoration: none;
+    font-size: 13px;
 }
+
 a.username:hover {
     color: #868686;
     text-decoration: none;
 }
+
+
+ul.user {
+    margin-top: 0;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    padding-inline-start: 0px;
+
+}
+
+li.user {
+    float: Left;
+
+}
+
 
 .navbar-nav > li > a {
 	margin: 2px;
@@ -76,7 +106,7 @@ a.username:hover {
 	border-radius: 0px;
 	margin: 4px;
 	width: 144px;
-	height: 208px;
+	height: 196px;
 
 
 	float: Left;
@@ -91,7 +121,7 @@ a.username:hover {
 		border: 1px solid green;
 	}
 
-	img {
+	img.scene {
 		min-width: 90%;
 		max-width: 100%;
 		height: auto;
@@ -103,13 +133,34 @@ a.username:hover {
 		-webkit-user-select: none;
 		-ms-user-select: none;
 	}	
+
+    img.small_avatar {
+        width: 16px;
+        height: 16px;
+        background-size: cover;
+        display: block;
+        border-radius: 100px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        margin-right: 4px;
+    }
 }
 
 .panel-body {
 	padding: 4px;
+
+    a.title {
+        font-size: 14px;
+
+    }
+
+
+
+
 	h1 {
 		margin: 0 0 10px 0;
 	}
+
 	.description {
 		color: #868686;
 		line-height: 1.75;

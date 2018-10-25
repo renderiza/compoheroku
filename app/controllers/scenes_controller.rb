@@ -47,16 +47,17 @@ class ScenesController < ApplicationController
 
 	private
 
+	def find_scene
+		@scene = Scene.find(params[:id])
+	end
+
 	def scene_params
 		params.require(:scene).permit(
 			:name,
 			:description,
-			:image
+			:image,
+			:board_id
 		)
-	end
-
-	def find_scene
-		@scene = Scene.find(params[:id])
 	end
 
 	def correct_user

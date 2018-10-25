@@ -1,26 +1,24 @@
+%h2= @board.name
+
+- @board.scenes.each do |scene|
+	.box.panel.panel-default
+		
+		%audio#audio{:src => audio_path("pick.wav")}
+		%a{:href => "JavaScript:play()"}
+			=image_tag( scene.image.url(:thumb), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
+
+		.panel-body	
+			%h4= link_to scene.name, scene
+			/%small Posted in "#{scene.board.name}"
+
+			= link_to user_path(scene.user.username), class: "username"  do
+				%p= scene.user.username
+				
 
 .box.panel.panel-default
 	.panel-body
 		= link_to new_scene_path, class: ""  do
 			.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
-
-- @scenes.each do |scene|
-	.box.panel.panel-default
-		
-		%audio#audio{:src => audio_path("pick.wav")}
-		%a{:href => "JavaScript:play()"}
-			=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}')" )
-
-		.panel-body	
-			%h5= link_to scene.name, scene, class: "title"
-			/%small Posted in "#{scene.board.name}"
-			
-			%ul.user
-				%li.user
-					= image_tag scene.user.avatar.url(:thumb), class: "small_avatar"
-				%li
-					= link_to user_path(scene.user.username), class: "username"  do
-						%p by #{scene.user.username}
 
 / Tips content
 #tip-new.tip-content.hidden

@@ -17,6 +17,12 @@
 							Submitted by
 							= link_to user_path(@scene.user.username), class: ""  do
 								= @scene.user.username
+
+						%p.user
+							Posted in
+							= link_to @scene.board, class: ""  do
+								= @scene.board.name
+
 				
 					.col-md-6
 						.btn-group.pull-right
