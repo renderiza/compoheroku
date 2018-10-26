@@ -22,6 +22,14 @@
 $dark: #3d3d3d;
 $white: #F8F8F8;
 
+
+
+li.search {
+
+     margin-top: 14px;
+     margin-left: 8px;
+}
+
 img.avatar {
     width: 96px;
     height: 96px;
@@ -34,6 +42,22 @@ img.avatar {
     margin-left: auto;
     margin-right: auto;
 }
+
+img.show_avatar {
+    width: 64px;
+    height: 64px;
+    background-size: cover;
+    display: block;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    margin-right: 8px;
+}
+
+h4.username {
+    font-size: 16px;
+}
+
 
 body {
 	background: #E9E9E9;
@@ -52,6 +76,17 @@ h4, .h4, h5, .h5, h6, .h6 {
     margin-bottom: 4px;
 }
 
+a {
+    text-decoration: none;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+a.show_a {
+    font-size: 20px;
+}
+
+
 a.username {
     color: #B7B7B7;
     text-decoration: none;
@@ -61,6 +96,13 @@ a.username {
 a.username:hover {
     color: #868686;
     text-decoration: none;
+}
+
+p.username {
+    color: #B7B7B7;
+    text-decoration: none;
+
+    margin-top: 8px;
 }
 
 
@@ -76,6 +118,20 @@ ul.user {
 li.user {
     float: Left;
 
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+}
+
+.navbar-default.last {
+    background-color: #f8f8f8;
+    border-color: #f8f8f8;
+
+    margin-bottom: 32px;
 }
 
 
@@ -96,6 +152,9 @@ li.user {
     padding-right: 8px;
 }
 
+
+
+
 .box {
 	list-style: none;
 	text-align: left;
@@ -104,9 +163,9 @@ li.user {
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
 	background: #FFFFFF;
 	border-radius: 0px;
-	margin: 4px;
-	width: 144px;
-	height: 196px;
+	margin: 2px;
+	width: 160px;
+	height: 212px;
 
 
 	float: Left;
@@ -135,8 +194,8 @@ li.user {
 	}	
 
     img.small_avatar {
-        width: 16px;
-        height: 16px;
+        width: 24px;
+        height: 24px;
         background-size: cover;
         display: block;
         border-radius: 100px;
@@ -147,25 +206,16 @@ li.user {
 }
 
 .panel-body {
-	padding: 4px;
+	padding: 8px;
 
     a.title {
         font-size: 14px;
-
     }
 
+    a {
+        text-decoration: none;
+    }
 
-
-
-	h1 {
-		margin: 0 0 10px 0;
-	}
-
-	.description {
-		color: #868686;
-		line-height: 1.75;
-		margin: 0px;
-	}
 }
 
 
@@ -201,16 +251,27 @@ li.user {
 
 
 .glyphicon.glyphicon-plus.big {
+    
     font-size: 64px;
+    background-size: cover;
+    display: block;
+   
     text-align: center;
-    margin-top: 24px;
-    margin-left: 24px;
+    margin-top: 20%;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+    text-decoration: none;
 
 
 	transition: font-size .5s;
 }
 .glyphicon.glyphicon-plus.big:hover {
+
     font-size: 68px;
+    text-decoration: none;
 }
 
 
@@ -321,8 +382,8 @@ footer {
         float: left;
     }
     .navbar-nav>li>a {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
 }
 

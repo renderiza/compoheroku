@@ -1,5 +1,10 @@
 %h2= @board.name
 
+.box.panel.panel-default.new
+	.panel-body
+		= link_to new_scene_path, class: ""  do
+			.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
+
 - @board.scenes.each do |scene|
 	.box.panel.panel-default
 		
@@ -14,11 +19,6 @@
 			= link_to user_path(scene.user.username), class: "username"  do
 				%p= scene.user.username
 				
-
-.box.panel.panel-default
-	.panel-body
-		= link_to new_scene_path, class: ""  do
-			.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
 
 / Tips content
 #tip-new.tip-content.hidden

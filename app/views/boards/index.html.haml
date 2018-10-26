@@ -12,7 +12,7 @@
 		
 		.panel-body	
 
-			%h5= board.name
+			%h5= link_to board.name, board
 
 			%h6= link_to 'edit', edit_board_path(board)
 			%h6= link_to 'delete', board, method: :delete

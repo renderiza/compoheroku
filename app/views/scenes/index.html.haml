@@ -1,5 +1,5 @@
 
-.box.panel.panel-default
+.box.panel.panel-default.new
 	.panel-body
 		= link_to new_scene_path, class: ""  do
 			.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
@@ -17,10 +17,17 @@
 			
 			%ul.user
 				%li.user
-					= image_tag scene.user.avatar.url(:thumb), class: "small_avatar"
+					= link_to user_path(scene.user.username), class: "small_avatar"  do
+						= image_tag scene.user.avatar.url(:thumb), class: "small_avatar"
 				%li
-					= link_to user_path(scene.user.username), class: "username"  do
-						%p by #{scene.user.username}
+					%p.username
+						by
+						= link_to user_path(scene.user.username), class: "username"  do
+							= scene.user.username
+				
+
+					/= link_to user_path(scene.user.username), class: "username"  do
+					/%p by #{scene.user.username}
 
 / Tips content
 #tip-new.tip-content.hidden

@@ -1,6 +1,25 @@
 #scene_show.row
 	.col-md-8.col-md-offset-2
 		.panel.panel-default
+			
+			.panel-heading
+				.container
+					%ul.nav.navbar-nav.navbar-left
+						%li.user
+							= link_to user_path(@scene.user.username), class: "show_a"  do
+								= image_tag @scene.user.avatar.url(:thumb), class: "show_avatar"
+						
+						%li
+							%p.username
+								= link_to user_path(@scene.user.username), class: "show_a"  do
+									= @scene.user.username
+
+					%ul.nav.navbar-nav.navbar-right
+						%li
+							- if user_signed_in? &&  @scene.user != current_user
+								= link_to "Repost", repost_scene_path(@scene), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-default"
+
+
 			.panel-heading.scene_image
 				= image_tag @scene.image.url(:medium)
 
@@ -19,7 +38,7 @@
 								= @scene.user.username
 
 						%p.user
-							Posted in
+							Board:
 							= link_to @scene.board, class: ""  do
 								= @scene.board.name
 
@@ -33,5 +52,3 @@
 								= link_to "Edit", edit_scene_path, class: "btn btn-default"
 
 								= link_to "Delete", scene_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default"
-							- if user_signed_in? &&  @scene.user != current_user
-								= link_to "Repost", repost_scene_path(@scene), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-default"

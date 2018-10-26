@@ -1,19 +1,40 @@
+#scene_show.row
+	.col-md-8.col-md-offset-2
+		.panel.panel-default
 
-= image_tag @user.avatar.url(:thumb), class: "avatar"
-%h3= @user.username
-%p= @user.bio
+			.panel-heading
+				= image_tag @user.avatar.url(:thumb), class: "avatar"
+				%h3= @user.username
+				%p= @user.bio
+
+			.panel-footer
+				.row
+					.col-md-6
+					
+
+					.col-md-6
+						.btn-group.pull-right
+							= link_to "Back", root_path, class: "btn btn-default"
+
+							- if @user == current_user
+								= link_to "Edit", edit_user_registration_path, class: "btn btn-default"
+
+								
 
 
 %h3 My Boards
 
-.box.panel.panel-default
-	.panel-body
-		= link_to new_board_path, class: ""  do
-			.glyphicon.glyphicon-plus.big
+-if @user == current_user
+	.box.panel.panel-default
+		.panel-body
+			= link_to new_board_path, class: ""  do
+				.glyphicon.glyphicon-plus.big
 
 - @user.boards.each do |board|
 
 	.box.panel.panel-default
+
+		=image_tag board.scenes.first.image.url(:thumb) if board.scenes.length >=1
 
 		.panel-body	
 			%h5= link_to board.name, board
