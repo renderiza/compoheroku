@@ -1,18 +1,46 @@
-%h2 All Boards
+.col-md-8.col-md-offset-2
+	.panel.panel-default
 
-.box.panel.panel-default
-	.panel-body
-		= link_to new_board_path, class: ""  do
-			.glyphicon.glyphicon-plus.big
+		.panel-heading
+			- if current_user
+				= image_tag current_user.avatar.url(:thumb), class: "avatar"
+				%p= current_user.username
+
+			
+		.panel-body
+
+			%h2 All Boards
+
+			.box.panel.panel-default
+				.panel-body
+					= link_to new_board_path, class: ""  do
+						.glyphicon.glyphicon-plus.big
 
 
-- @boards.each do |board|
+			- @boards.each do |board|
 
-	.box.panel.panel-default
-		
-		.panel-body	
+				.box.panel.panel-default
 
-			%h5= link_to board.name, board
+					=image_tag board.scenes.first.image.url(:thumb)
+					
+					.panel-body	
 
-			%h6= link_to 'edit', edit_board_path(board)
-			%h6= link_to 'delete', board, method: :delete
+						%h5= link_to board.name, board
+
+						%ul.user
+							%li.user
+								= link_to user_path(board.user.username), class: "small_avatar"  do
+									= image_tag board.user.avatar.url(:thumb), class: "small_avatar"
+				
+							%li
+								%p.username
+									by
+									= link_to user_path(board.user.username), class: "username"  do
+										= board.user.username
+
+							%ul.user
+								%li.user
+									%h6= link_to 'edit', edit_board_path(board)
+
+								%li.user
+									%h6= link_to 'delete', board, method: :delete

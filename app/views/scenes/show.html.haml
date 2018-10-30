@@ -17,7 +17,7 @@
 					%ul.nav.navbar-nav.navbar-right
 						%li
 							- if user_signed_in? &&  @scene.user != current_user
-								= link_to "Repost", repost_scene_path(@scene), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-default"
+								= link_to "Save", repost_scene_path(@scene), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
 
 
 			.panel-heading.scene_image
@@ -32,20 +32,19 @@
 			.panel-footer
 				.row
 					.col-md-6
-						%p.user
-							Submitted by
-							= link_to user_path(@scene.user.username), class: ""  do
-								= @scene.user.username
-
+					
 						%p.user
 							Board:
 							= link_to @scene.board, class: ""  do
-								= @scene.board.name
+								- if @scene.board
+									= @scene.board.name if @scene.board
+								-else
+									none
 
 				
 					.col-md-6
 						.btn-group.pull-right
-							= link_to "Back", root_path, class: "btn btn-default"
+							= link_to "Back", :back, class: "btn btn-default"
 
 							- if @scene.user == current_user
 

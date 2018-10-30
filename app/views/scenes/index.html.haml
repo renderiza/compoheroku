@@ -1,33 +1,46 @@
+#scene_show.row
+	.col-md-8.col-md-offset-2
+		.panel.panel-default
 
-.box.panel.panel-default.new
-	.panel-body
-		= link_to new_scene_path, class: ""  do
-			.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
+			.panel-heading
+				- if current_user
+					= image_tag current_user.avatar.url(:thumb), class: "avatar"
+					%p= current_user.username
 
-- @scenes.each do |scene|
-	.box.panel.panel-default
-		
-		%audio#audio{:src => audio_path("pick.wav")}
-		%a{:href => "JavaScript:play()"}
-			=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}')" )
-
-		.panel-body	
-			%h5= link_to scene.name, scene, class: "title"
-			/%small Posted in "#{scene.board.name}"
-			
-			%ul.user
-				%li.user
-					= link_to user_path(scene.user.username), class: "small_avatar"  do
-						= image_tag scene.user.avatar.url(:thumb), class: "small_avatar"
-				%li
-					%p.username
-						by
-						= link_to user_path(scene.user.username), class: "username"  do
-							= scene.user.username
 				
+			.panel-body
+				%h3 SketchUp Scenes
 
-					/= link_to user_path(scene.user.username), class: "username"  do
-					/%p by #{scene.user.username}
+				.box.panel.panel-default.new
+					.panel-body
+						= link_to new_scene_path, class: ""  do
+							.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
+
+				- @scenes.each do |scene|
+					.box.panel.panel-default
+						
+						%audio#audio{:src => audio_path("pick.wav")}
+						%a{:href => "JavaScript:play()"}
+							=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}')" )
+
+						/.panel-body	
+						
+						
+						%ul.user
+							%li
+								%h4= link_to scene.name, scene, class: "title"
+
+							%li.user
+								= link_to user_path(scene.user.username), class: "small_avatar"  do
+									= image_tag scene.user.avatar.url(:thumb), class: "small_avatar"
+							%li
+								%p.username
+									by
+									= link_to user_path(scene.user.username), class: "username"  do
+										= scene.user.username
+
+							%li.button
+								= link_to "Create Scene", :back, class: "btn btn-default"
 
 / Tips content
 #tip-new.tip-content.hidden

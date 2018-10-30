@@ -1,24 +1,52 @@
-%h2= @board.name
+#scene_show.row
+	.col-md-8.col-md-offset-2
+		.panel.panel-default
 
-.box.panel.panel-default.new
-	.panel-body
-		= link_to new_scene_path, class: ""  do
-			.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
+			.panel-heading
+				= image_tag @board.user.avatar.url(:thumb), class: "avatar"
 
-- @board.scenes.each do |scene|
-	.box.panel.panel-default
-		
-		%audio#audio{:src => audio_path("pick.wav")}
-		%a{:href => "JavaScript:play()"}
-			=image_tag( scene.image.url(:thumb), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
+				= link_to user_path(@board.user.username), class: ""  do
+					%h3= @board.user.username
+				%p= @board.user.bio
 
-		.panel-body	
-			%h4= link_to scene.name, scene
-			/%small Posted in "#{scene.board.name}"
+			.panel-body
+				.btn-group.pull-left
+					%h4= "#{@board.user.username} > #{@board.name}"
 
-			= link_to user_path(scene.user.username), class: "username"  do
-				%p= scene.user.username
-				
+
+				.btn-group.pull-right
+					= link_to "Create All Scenes in SketchUp", :back, class: "btn btn-default"
+
+			.panel-body
+				.box.panel.panel-default.new
+					.panel-body
+						= link_to new_scene_path, class: ""  do
+							.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
+
+				- @board.scenes.each do |scene|
+					.box.panel.panel-default
+						
+						%audio#audio{:src => audio_path("pick.wav")}
+						%a{:href => "JavaScript:play()"}
+							=image_tag( scene.image.url(:thumb), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
+
+						.panel-body	
+							%h4= link_to scene.name, scene
+							/%small Posted in "#{scene.board.name}"
+
+
+			.panel-footer
+				.row
+					.col-md-12
+						.btn-group.pull-right
+							/= link_to "Back", root_path, class: "btn btn-default"
+							
+							= link_to "Back", :back, class: "btn btn-default"
+
+
+							- if @board.user == current_user
+								= link_to "Edit", edit_user_registration_path, class: "btn btn-default"
+								
 
 / Tips content
 #tip-new.tip-content.hidden
