@@ -19,9 +19,8 @@
 
 			.panel-body
 				.box.panel.panel-default.new
-					.panel-body
-						= link_to new_scene_path, class: ""  do
-							.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
+					= link_to new_scene_path, class: ""  do
+						.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
 
 				- @board.scenes.each do |scene|
 					.box.panel.panel-default
@@ -29,10 +28,26 @@
 						%audio#audio{:src => audio_path("pick.wav")}
 						%a{:href => "JavaScript:play()"}
 							=image_tag( scene.image.url(:thumb), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
+						
+						%ul.user
+							%li
+								%h4= link_to scene.name, scene, class: "title"
 
-						.panel-body	
-							%h4= link_to scene.name, scene
-							/%small Posted in "#{scene.board.name}"
+							%li.user
+								= link_to user_path(scene.user.username), class: "small_avatar"  do
+									= image_tag scene.user.avatar.url(:thumb), class: "small_avatar"
+							%li
+								%p.username
+									by
+									= link_to user_path(scene.user.username), class: "username"  do
+										= scene.user.username
+
+							%li.button
+								= link_to "Create Scene", root_path, class: "btn btn-default"
+
+						
+						/%h4= link_to scene.name, scene
+						/%small Posted in "#{scene.board.name}"
 
 
 			.panel-footer

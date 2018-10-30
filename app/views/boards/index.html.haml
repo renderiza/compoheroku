@@ -11,10 +11,9 @@
 
 			%h2 All Boards
 
-			.box.panel.panel-default
-				.panel-body
-					= link_to new_board_path, class: ""  do
-						.glyphicon.glyphicon-plus.big
+			.box.panel.panel-default.new
+				= link_to new_board_path, class: ""  do
+					.glyphicon.glyphicon-plus.big
 
 
 			- @boards.each do |board|

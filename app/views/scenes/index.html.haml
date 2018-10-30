@@ -20,12 +20,15 @@
 					.box.panel.panel-default
 						
 						%audio#audio{:src => audio_path("pick.wav")}
-						%a{:href => "JavaScript:play()"}
-							=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}')" )
+						/%a{:href => "JavaScript:play()"}
+						/=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}')" )
+
+						= link_to (image_tag scene.image.url(:thumb), class: "scene"), scene
 						
 						%ul.user
 							%li
-								%h4= link_to scene.name, scene, class: "title"
+								= link_to scene, class: "title"  do
+									= truncate scene.name, length: 24
 
 							%li.user
 								= link_to user_path(scene.user.username), class: "small_avatar"  do
@@ -37,8 +40,9 @@
 										= scene.user.username
 
 							%li.button
-								= link_to "Create Scene", root_path, class: "btn btn-default"
-
+								%a{class: "btn btn-default", onclick: "JavaScript:play()"} Create Scene
+										
+							
 / Tips content
 #tip-new.tip-content.hidden
 	%p New Scene
