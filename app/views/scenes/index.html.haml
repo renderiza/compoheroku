@@ -12,9 +12,9 @@
 				%h3 SketchUp Scenes
 
 				.box.panel.panel-default.new
-					.panel-body
-						= link_to new_scene_path, class: ""  do
-							.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
+						
+					= link_to new_scene_path, class: ""  do
+						.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
 
 				- @scenes.each do |scene|
 					.box.panel.panel-default
@@ -22,9 +22,6 @@
 						%audio#audio{:src => audio_path("pick.wav")}
 						%a{:href => "JavaScript:play()"}
 							=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}')" )
-
-						/.panel-body	
-						
 						
 						%ul.user
 							%li
@@ -40,7 +37,7 @@
 										= scene.user.username
 
 							%li.button
-								= link_to "Create Scene", :back, class: "btn btn-default"
+								= link_to "Create Scene", root_path, class: "btn btn-default"
 
 / Tips content
 #tip-new.tip-content.hidden
