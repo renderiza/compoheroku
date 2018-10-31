@@ -23,6 +23,25 @@
 			.panel-heading.scene_image
 				= image_tag @scene.image.url(:medium)
 
+
+
+
+			%nav{"aria-label" => "breadcrumb"}
+				%ol.breadcrumb
+					%li.breadcrumb-item
+						= link_to user_path(@scene.user.username), class: "username"  do
+							= @scene.user.username
+
+					- if @scene.board
+						%li.breadcrumb-item
+							= link_to board_path(@scene.board.id), class: "username"  do
+								= @scene.board.name
+								
+					%li.breadcrumb-item.active{"aria-current" => "page"} #{@scene.name}
+
+
+
+
 			.panel-body
 				%h1= @scene.name
 				%p.description= @scene.description
@@ -31,18 +50,7 @@
 
 			.panel-footer
 				.row
-					.col-md-6
-					
-						%p.user
-							Board:
-							= link_to @scene.board, class: ""  do
-								- if @scene.board
-									= @scene.board.name if @scene.board
-								-else
-									none
-
-				
-					.col-md-6
+					.col-md-12
 						.btn-group.pull-right
 							= link_to "Back", :back, class: "btn btn-default"
 

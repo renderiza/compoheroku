@@ -90,13 +90,13 @@ a.show_a {
 
 
 a.username {
-    color: #B7B7B7;
+    //color: #B7B7B7;
     text-decoration: none;
     font-size: 14px;
 }
 
 a.username:hover {
-    color: #868686;
+    //color: #868686;
     text-decoration: none;
 }
 
@@ -193,6 +193,9 @@ li.user {
         width: 48px;
     }
 
+    li.img {
+        text-align: center;
+    }
     
     // Box
     img.scene {
@@ -200,8 +203,8 @@ li.user {
         max-width: 100%;
         height: auto;
 
-        margin-left: 8px;
         margin-top: 8px;
+        margin-bottom: 4px;
 
         user-drag: none; 
         user-select: none;
@@ -218,13 +221,13 @@ li.user {
     }
 
     p.username {
-        color: #B7B7B7;
+        //color: #B7B7B7;
         text-decoration: none;
         margin-left: 26px;
     }
 
     li.button {
-        margin-left: 24px;
+        text-align: center;
     }
 }
 
@@ -289,7 +292,7 @@ li.user {
     transition: opacity 1s;
 }
 .tip:hover {
-    opacity: 1;
+    //opacity: 1;
 }
 .tooltip {
     opacity: 0;

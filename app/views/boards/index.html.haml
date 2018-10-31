@@ -2,11 +2,18 @@
 	.panel.panel-default
 
 		.panel-heading
-			- if current_user
-				= image_tag current_user.avatar.url(:thumb), class: "avatar"
-				%p= current_user.username
+			/- if current_user
+			/	= image_tag current_user.avatar.url(:thumb), class: "avatar"
+			/	%p= current_user.username
 
-			
+			.container
+				%ul.nav.navbar-nav.navbar-left
+					%li
+						= link_to "Scenes", root_path, class: "btn btn-default"
+
+					%li
+						= link_to "Boards", boards_path, class: "btn btn-default active"
+
 		.panel-body
 
 			%h2 All Boards
@@ -15,31 +22,27 @@
 				= link_to new_board_path, class: ""  do
 					.glyphicon.glyphicon-plus.big
 
-
 			- @boards.each do |board|
 
 				.box.panel.panel-default
+	
+					%ul.user
 
-					=image_tag board.scenes.first.image.url(:thumb)
-					
-					.panel-body	
+						%li.img
+							= link_to (image_tag board.scenes.first.image.url(:thumb), class: "scene"), board
 
-						%h5= link_to board.name, board
+						%li
+							= link_to board, class: "title"  do
+								= truncate board.name, length: 24
 
-						%ul.user
-							%li.user
-								= link_to user_path(board.user.username), class: "small_avatar"  do
-									= image_tag board.user.avatar.url(:thumb), class: "small_avatar"
-				
-							%li
-								%p.username
-									by
-									= link_to user_path(board.user.username), class: "username"  do
-										= board.user.username
+						%li.user
+							= link_to user_path(board.user.username), class: "small_avatar"  do
+								= image_tag board.user.avatar.url(:thumb), class: "small_avatar"
+						%li
+							%p.username
+								by
+								= link_to user_path(board.user.username), class: "username"  do
+									= board.user.username
 
-							%ul.user
-								%li.user
-									%h6= link_to 'edit', edit_board_path(board)
-
-								%li.user
-									%h6= link_to 'delete', board, method: :delete
+						%li.button
+							%a{class: "btn btn-default", onclick: "JavaScript:play()"} Create Scenes

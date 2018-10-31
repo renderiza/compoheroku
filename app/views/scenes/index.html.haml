@@ -3,13 +3,21 @@
 		.panel.panel-default
 
 			.panel-heading
-				- if current_user
-					= image_tag current_user.avatar.url(:thumb), class: "avatar"
-					%p= current_user.username
+				/- if current_user
+				/	= image_tag current_user.avatar.url(:thumb), class: "avatar"
+				/	%p= current_user.username
+				
+				.container
+					%ul.nav.navbar-nav.navbar-left
+						%li
+							= link_to "Scenes", root_path, class: "btn btn-default active"
+
+						%li
+							= link_to "Boards", boards_path, class: "btn btn-default"
 
 				
 			.panel-body
-				%h3 SketchUp Scenes
+				%h2 All Scenes
 
 				.box.panel.panel-default.new
 						
@@ -22,10 +30,12 @@
 						%audio#audio{:src => audio_path("pick.wav")}
 						/%a{:href => "JavaScript:play()"}
 						/=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}')" )
-
-						= link_to (image_tag scene.image.url(:thumb), class: "scene"), scene
 						
 						%ul.user
+							
+							%li.img
+								= link_to (image_tag scene.image.url(:thumb), class: "scene"), scene
+
 							%li
 								= link_to scene, class: "title"  do
 									= truncate scene.name, length: 24
