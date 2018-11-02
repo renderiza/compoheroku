@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
+gem 'simple_form_extension', '~> 1.4', '>= 1.4.14'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'devise', '~> 4.5'
 gem 'paperclip', '~> 6.1'
@@ -58,3 +59,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'

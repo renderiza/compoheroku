@@ -29,10 +29,10 @@
 		= f.input :shadows, input_htm: { class: 'form-control' }
 
 	.form-group
-		= f.input :light, input_htm: { class: 'form-control' }
+		= f.input :light, as: :slider, min: 0, max: 100, input_htm: { class: 'form-control' }
 
 	.form-group
-		= f.input :dark, input_htm: { class: 'form-control' }
+		= f.input :dark, as: :slider, min: 0, max: 100, input_htm: { class: 'form-control' }
 
 	.form-group
 		= f.input :sun, input_htm: { class: 'form-control' }
@@ -55,20 +55,20 @@
 	%hr/
 
 	%h3= "Face Settings"
-	/.radio
-	/	= f.input :render_mode, as: :radio_buttons, collection: [['0', 'Wireframe'], ['1', 'Hidden Line'], ['2', 'Shaded'], ['3', 'Textured'], ['4', 'Monochrome']], label_method: :second, value_method: :first
+	.radio
+		= f.input :render_mode, as: :radio_buttons, collection: [['0', 'Wireframe'], ['1', 'Hidden Line'], ['2', 'Shaded'], ['3', 'Textured'], ['4', 'Monochrome']], label_method: :second, value_method: :first
 
 	%hr/
 
 	%h3= "Background Settings"
 	.form-group
-		= f.input :bg_color, input_htm: { class: 'form-control' }
+		= f.input :bg_color, as: :color, input_htm: { class: 'form-control' }
 	.form-group
-		= f.input :sky_color, input_htm: { class: 'form-control' }
+		= f.input :sky_color, as: :color, input_htm: { class: 'form-control' }
 	.form-group
 		= f.input :draw_sky, input_htm: { class: 'form-control' }
 	.form-group
-		= f.input :ground_color, input_htm: { class: 'form-control' }
+		= f.input :ground_color, as: :color, input_htm: { class: 'form-control' }
 	.form-group
 		= f.input :draw_ground, input_htm: { class: 'form-control' }
 
@@ -77,16 +77,16 @@
 	%h3= "Fog Settings"
 	.form-group
 		= f.input :fog, input_htm: { class: 'form-control' }
+	.form-group
+		= f.input :fog_color, as: :color, input_htm: { class: 'form-control' }
+	.form-group
+		= f.input :fog_use_bk, input_htm: { class: 'form-control' }
 
 	%hr/
 
 	%h3= "Layers Settings"
 	.form-group
 		= f.input :color_by_layer, input_htm: { class: 'form-control' }
-	.form-group
-		= f.input :fog_color, input_htm: { class: 'form-control' }
-	.form-group
-		= f.input :fog_use_bk, input_htm: { class: 'form-control' }
 
 
 
