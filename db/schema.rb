@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181025040702) do
+ActiveRecord::Schema.define(version: 20181102040006) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20181025040702) do
   create_table "scenes", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -31,6 +31,25 @@ ActiveRecord::Schema.define(version: 20181025040702) do
     t.datetime "image_updated_at"
     t.integer  "original_scene_id"
     t.integer  "board_id"
+    t.boolean  "shadows",            default: false
+    t.integer  "dark",               default: 50
+    t.integer  "light",              default: 50
+    t.boolean  "sun",                default: true
+    t.boolean  "fog",                default: false
+    t.string   "bg_color",           default: "#ffffff"
+    t.string   "fog_color",          default: "#000000"
+    t.boolean  "fog_use_bk",         default: true
+    t.boolean  "color_by_layer",     default: false
+    t.boolean  "edge",               default: false
+    t.integer  "render_mode",        default: 2
+    t.string   "sky_color",          default: "#7EC0EE"
+    t.boolean  "draw_sky",           default: false
+    t.boolean  "draw_ground",        default: false
+    t.string   "ground_color",       default: "#867d8c"
+    t.boolean  "depth_cue",          default: false
+    t.boolean  "hidden",             default: false
+    t.boolean  "endpoints",          default: false
+    t.boolean  "profiles",           default: false
     t.index ["user_id"], name: "index_scenes_on_user_id"
   end
 

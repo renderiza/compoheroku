@@ -56,7 +56,27 @@ class ScenesController < ApplicationController
 			:name,
 			:description,
 			:image,
-			:board_id
+			:board_id,
+			:shadows,
+			:dark,
+			:light,
+			:sun,
+			:fog,
+			:fog_color,
+			:fog_use_bk,
+			:bg_color,
+			:color_by_layer,
+			:edge,
+			:render_mode,
+			:sky_color,
+			:draw_sky,
+			:draw_ground,
+			:ground_color,
+			:depth_cue,
+			:hidden,
+			:endpoints,
+			:profiles
+
 		)
 	end
 

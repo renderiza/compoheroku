@@ -17,7 +17,82 @@
 	.form-group
 		= f.input :description, input_htm: { class: 'form-control' }
 
+
+	%h3= "View Settings"
+	.form-group
+		= f.input :hidden, input_htm: { class: 'form-control' }
 	
+	%hr/
+
+	%h3= "Shadow Settings"
+	.form-group
+		= f.input :shadows, input_htm: { class: 'form-control' }
+
+	.form-group
+		= f.input :light, input_htm: { class: 'form-control' }
+
+	.form-group
+		= f.input :dark, input_htm: { class: 'form-control' }
+
+	.form-group
+		= f.input :sun, input_htm: { class: 'form-control' }
+
+	%hr/
+
+	%h3= "Edges Settings"
+	.form-group
+		= f.input :edge, input_htm: { class: 'form-control' }
+
+	.form-group
+		= f.input :profiles, input_htm: { class: 'form-control' }
+
+	.form-group
+		= f.input :depth_cue, input_htm: { class: 'form-control' }
+
+	.form-group
+		= f.input :endpoints, input_htm: { class: 'form-control' }
+
+	%hr/
+
+	%h3= "Face Settings"
+	/.radio
+	/	= f.input :render_mode, as: :radio_buttons, collection: [['0', 'Wireframe'], ['1', 'Hidden Line'], ['2', 'Shaded'], ['3', 'Textured'], ['4', 'Monochrome']], label_method: :second, value_method: :first
+
+	%hr/
+
+	%h3= "Background Settings"
+	.form-group
+		= f.input :bg_color, input_htm: { class: 'form-control' }
+	.form-group
+		= f.input :sky_color, input_htm: { class: 'form-control' }
+	.form-group
+		= f.input :draw_sky, input_htm: { class: 'form-control' }
+	.form-group
+		= f.input :ground_color, input_htm: { class: 'form-control' }
+	.form-group
+		= f.input :draw_ground, input_htm: { class: 'form-control' }
+
+	%hr/
+
+	%h3= "Fog Settings"
+	.form-group
+		= f.input :fog, input_htm: { class: 'form-control' }
+
+	%hr/
+
+	%h3= "Layers Settings"
+	.form-group
+		= f.input :color_by_layer, input_htm: { class: 'form-control' }
+	.form-group
+		= f.input :fog_color, input_htm: { class: 'form-control' }
+	.form-group
+		= f.input :fog_use_bk, input_htm: { class: 'form-control' }
+
+
+
+
+
+	%hr/
 	.form-group
 		= f.label :board
 		%br/

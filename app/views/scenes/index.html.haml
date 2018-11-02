@@ -27,9 +27,15 @@
 				- @scenes.each do |scene|
 					.box.panel.panel-default
 						
+						- @info = {"name" => scene.name, "description" => scene.description}
+						- @rop = {"shadows" => scene.shadows,"dark" => scene.dark,"light" => scene.light,"sun" => scene.sun,"fog" => scene.fog,"bg_color" => scene.bg_color,"fog_color" => scene.fog_color,"fog_use_bk" => scene.fog_use_bk,"color_by_layer" => scene.color_by_layer,"edge" => scene.edge,"render_mode" => scene.render_mode,"sky_color" => scene.sky_color,"draw_sky" => scene.draw_sky,"draw_ground" => scene.draw_ground,"ground_color" => scene.ground_color,"depth_cue" => scene.depth_cue,"hidden" => scene.hidden,"endpoints" => scene.endpoints,"profiles" => scene.profiles  }
+						
+
+
+						
 						%audio#audio{:src => audio_path("pick.wav")}
 						/%a{:href => "JavaScript:play()"}
-						/=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}')" )
+						/=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}','#{@rop}')" )
 						
 						%ul.user
 							
@@ -50,7 +56,7 @@
 										= scene.user.username
 
 							%li.button
-								%a{class: "btn btn-default", onclick: "JavaScript:play()"} Create Scene
+								%a{class: "btn btn-default", onclick: "JavaScript:play()", onclick: "JavaScript:myScene('#{scene.name}','#{scene.description}','#{@rop}')"} Create Scene
 										
 							
 / Tips content
