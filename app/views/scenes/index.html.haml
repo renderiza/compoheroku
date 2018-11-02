@@ -56,7 +56,7 @@
 										= scene.user.username
 
 							%li.button
-								%a{class: "btn btn-default", onclick: "JavaScript:play()", onclick: "JavaScript:myScene('#{scene.name}','#{scene.description}','#{@rop}')"} Create Scene
+								%a{class: "btn btn-default", onclick: "JavaScript:myScene('#{scene.name}','#{scene.description}','#{@rop}')"} Create Scene
 										
 							
 / Tips content
@@ -69,8 +69,8 @@
 
 :javascript
 
-	function myScene( name, description, shadows, light, dark, use_sun, fog, rop ){
-		sketchup.say( name, description, shadows, light, dark, use_sun, fog, rop );
+	function myScene( name, description, rop ){
+		sketchup.say( name, description, rop );
 	}
 
 	// Audio

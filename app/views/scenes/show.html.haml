@@ -20,30 +20,44 @@
 								= link_to "Save", repost_scene_path(@scene), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
 
 
+
+
+
 			.panel-heading.scene_image
+				%nav{"aria-label" => "breadcrumb"}
+					%ol.breadcrumb
+						%li.breadcrumb-item
+							= link_to user_path(@scene.user.username), class: "username"  do
+								= @scene.user.username
+
+						- if @scene.board
+							%li.breadcrumb-item
+								= link_to board_path(@scene.board.id), class: "username"  do
+									= @scene.board.name
+									
+						%li.breadcrumb-item.active{"aria-current" => "page"} #{@scene.name}
+
+
 				= image_tag @scene.image.url(:medium)
 
 
 
-
-			%nav{"aria-label" => "breadcrumb"}
-				%ol.breadcrumb
-					%li.breadcrumb-item
-						= link_to user_path(@scene.user.username), class: "username"  do
-							= @scene.user.username
-
-					- if @scene.board
-						%li.breadcrumb-item
-							= link_to board_path(@scene.board.id), class: "username"  do
-								= @scene.board.name
-								
-					%li.breadcrumb-item.active{"aria-current" => "page"} #{@scene.name}
-
-
+			- @rop = {"shadows" => @scene.shadows,"dark" => @scene.dark,"light" => @scene.light,"sun" => @scene.sun,"fog" => @scene.fog,"bg_color" => @scene.bg_color,"fog_color" => @scene.fog_color,"fog_use_bk" => @scene.fog_use_bk,"color_by_layer" => @scene.color_by_layer,"edge" => @scene.edge,"render_mode" => @scene.render_mode,"sky_color" => @scene.sky_color,"draw_sky" => @scene.draw_sky,"draw_ground" => @scene.draw_ground,"ground_color" => @scene.ground_color,"depth_cue" => @scene.depth_cue,"hidden" => @scene.hidden,"endpoints" => @scene.endpoints,"profiles" => @scene.profiles  }
 
 
 			.panel-body
-				%h1= @scene.name
+				%ul
+					%li
+						%h1= @scene.name
+
+					%li
+						%a{class: "btn btn-default", onclick: "JavaScript:myScene('#{@scene.name}','#{@scene.description}','#{@rop}')"} Create Scene
+
+
+
+
+
+
 				%p.description= @scene.description
 				
 				%hr/
@@ -117,3 +131,9 @@
 								= link_to "Edit", edit_scene_path, class: "btn btn-default"
 
 								= link_to "Delete", scene_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default"
+
+:javascript
+
+	function myScene( name, description, rop ){
+		sketchup.say( name, description, rop );
+	}
