@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
 	resources :scenes do
 		#resources :comments
+		
 		member do
 			post '/repost' => 'scenes#repost'
+			get '/repost' => 'scenes#show_repost' ####
 		end
 		
 	end

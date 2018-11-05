@@ -23,7 +23,7 @@
 					.box.panel.panel-default
 						
 						=image_tag board.scenes.first.image.url(:thumb), class: "board" if board.scenes.length >=1
-						=image_tag board.scenes[1].image.url(:thumb), class: "board" if board.scenes.length >=1
+						/=image_tag board.scenes[1].image.url(:thumb), class: "board" if board.scenes.length >=1
 
 						.panel-body	
 							%h5= link_to board.name, board

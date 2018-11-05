@@ -25,38 +25,40 @@
 						.glyphicon.glyphicon-plus.big.append.text-info.tip{"data-placement" => "bottom", "data-tip" => "tip-new", :onclick => "JavaScript:play()"}
 
 				- @scenes.each do |scene|
-					.box.panel.panel-default
-						
-						- @info = {"name" => scene.name, "description" => scene.description}
-						- @rop = {"shadows" => scene.shadows,"dark" => scene.dark,"light" => scene.light,"sun" => scene.sun,"fog" => scene.fog,"bg_color" => scene.bg_color,"fog_color" => scene.fog_color,"fog_use_bk" => scene.fog_use_bk,"color_by_layer" => scene.color_by_layer,"edge" => scene.edge,"render_mode" => scene.render_mode,"sky_color" => scene.sky_color,"draw_sky" => scene.draw_sky,"draw_ground" => scene.draw_ground,"ground_color" => scene.ground_color,"depth_cue" => scene.depth_cue,"hidden" => scene.hidden,"endpoints" => scene.endpoints,"profiles" => scene.profiles  }
-						
-
-
-						
-						%audio#audio{:src => audio_path("pick.wav")}
-						/%a{:href => "JavaScript:play()"}
-						/=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}','#{@rop}')" )
-						
-						%ul.user
+					- if not scene.is_repost?
+               
+						.box.panel.panel-default
 							
-							%li.img
-								= link_to (image_tag scene.image.url(:thumb), class: "scene"), scene
+							- @info = {"name" => scene.name, "description" => scene.description}
+							- @rop = {"shadows" => scene.shadows,"dark" => scene.dark,"light" => scene.light,"sun" => scene.sun,"fog" => scene.fog,"bg_color" => scene.bg_color,"fog_color" => scene.fog_color,"fog_use_bk" => scene.fog_use_bk,"color_by_layer" => scene.color_by_layer,"edge" => scene.edge,"render_mode" => scene.render_mode,"sky_color" => scene.sky_color,"draw_sky" => scene.draw_sky,"draw_ground" => scene.draw_ground,"ground_color" => scene.ground_color,"depth_cue" => scene.depth_cue,"hidden" => scene.hidden,"endpoints" => scene.endpoints,"profiles" => scene.profiles  }
+							
 
-							%li
-								= link_to scene, class: "title"  do
-									= truncate scene.name, length: 24
 
-							%li.user
-								= link_to user_path(scene.user.username), class: "small_avatar"  do
-									= image_tag scene.user.avatar.url(:thumb), class: "small_avatar"
-							%li
-								%p.username
-									by
-									= link_to user_path(scene.user.username), class: "username"  do
-										= scene.user.username
+							
+							%audio#audio{:src => audio_path("pick.wav")}
+							/%a{:href => "JavaScript:play()"}
+							/=image_tag( scene.image.url(:thumb), class: "scene", :onclick => "myScene('#{scene.name}','#{scene.description}','#{@rop}')" )
+							
+							%ul.user
+								
+								%li.img
+									= link_to (image_tag scene.image.url(:thumb), class: "scene"), scene
 
-							%li.button
-								%a{class: "btn btn-default", onclick: "JavaScript:myScene('#{scene.name}','#{scene.description}','#{@rop}')"} Create Scene
+								%li
+									= link_to scene, class: "title"  do
+										= truncate scene.name, length: 24
+
+								%li.user
+									= link_to user_path(scene.user.username), class: "small_avatar"  do
+										= image_tag scene.user.avatar.url(:thumb), class: "small_avatar"
+								%li
+									%p.username
+										by
+										= link_to user_path(scene.user.username), class: "username"  do
+											= scene.user.username
+
+								%li.button
+									%a{class: "btn btn-default", onclick: "JavaScript:myScene('#{scene.name}','#{scene.description}','#{@rop}')"} Create Scene
 										
 							
 / Tips content

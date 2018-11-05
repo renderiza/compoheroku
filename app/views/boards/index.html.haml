@@ -14,6 +14,9 @@
 					%li
 						= link_to "Boards", boards_path, class: "btn btn-default active"
 
+					%li
+						%h4= "#{@boards.length} Boards" 
+
 		.panel-body
 
 			%h2 All Boards
@@ -29,7 +32,7 @@
 					%ul.user
 
 						%li.img
-							= link_to (image_tag board.scenes.first.image.url(:thumb), class: "scene"), board
+							/= link_to (image_tag board.scenes.first.image.url(:thumb), class: "scene"), board if board.scenes.first.image.present?
 
 						%li
 							= link_to board, class: "title"  do

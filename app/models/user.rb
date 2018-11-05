@@ -8,6 +8,7 @@ class User < ApplicationRecord
 	has_many :boards
 
 	validates_uniqueness_of :username
+	validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }
 
 	has_attached_file :avatar, 
 		path: ":rails_root/public/system/:attachment/:id/:style/:filename",

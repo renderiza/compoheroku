@@ -18,7 +18,7 @@ class ScenesController < ApplicationController
 		@scene = current_user.scenes.build(scene_params)
 
 		if @scene.save
-			redirect_to scenes_path, notice: "Successfully created new Scene"
+			redirect_to scenes_path, notice: 'Scene was successfully created.'
 		else
 			render 'new'
 		end
@@ -29,7 +29,7 @@ class ScenesController < ApplicationController
 
 	def update
 		if @scene.update(scene_params)
-			redirect_to @scene, notice: "Scene was Successfully updated!"
+			redirect_to @scene, notice: 'Scene was successfully updated.'
 		else
 			render 'edit'
 		end
@@ -37,13 +37,19 @@ class ScenesController < ApplicationController
 
 	def destroy
 		@scene.destroy
-		redirect_to root_path
+		redirect_to root_path, notice: 'Scene was successfully deleted.'
 	end
 
+	def show_repost
+    	@scene = Scene.find(params[:id])
+  	end
+
 	def repost
-		@scene.repost(current_user)
+		#@scene.repost(current_user)
+		@scene.repost(scene_params, current_user) ####
 		redirect_to scenes_path
 	end
+
 
 	private
 
@@ -76,7 +82,6 @@ class ScenesController < ApplicationController
 			:hidden,
 			:endpoints,
 			:profiles
-
 		)
 	end
 
@@ -85,4 +90,4 @@ class ScenesController < ApplicationController
 		redirect_to scenes_path, notice: "Not authorized to edit this scene" if @scene.nil?
 	end
 
-end ####
+end

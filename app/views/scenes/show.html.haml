@@ -17,7 +17,12 @@
 					%ul.nav.navbar-nav.navbar-right
 						%li
 							- if user_signed_in? &&  @scene.user != current_user
-								= link_to "Save", repost_scene_path(@scene), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
+								= link_to 'Repost', repost_scene_path(@scene), class: 'btn btn-default'
+
+
+						%li
+							- if @scene.is_repost?
+								%p= "I'm a repost!"
 
 
 
