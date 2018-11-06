@@ -10,13 +10,35 @@
 				.container
 					%ul.nav.navbar-nav.navbar-left
 						%li
-							= link_to "Scenes", root_path, class: "btn btn-default active"
+							= link_to scenes_path do 
+								%button.btn.btn-primary{type: "button"}
+									Scenes
+									%span.badge.badge-light= "#{@scenes.length}"
 
 						%li
-							= link_to "Boards", boards_path, class: "btn btn-default"
+							- @boards = Board.all
+							= link_to boards_path do 
+								%button.btn.btn-default{type: "button"}
+									Boards
+									%span.badge.badge-light= "#{@boards.length}"
+
+					%ul.nav.navbar-nav.navbar-right
+						%li
+							= link_to root_path do 
+								%button.btn.btn-success{type: "button"}
+									Go Premium
+									%span.badge.badge-light= "$10 / mo"
+
 
 				
 			.panel-body
+				%ul
+					%li.img
+						= link_to root_path do 
+							%button.btn.btn-default{type: "button"}
+								Export SketchUp Scenes
+								/%span.badge.badge-light= "$10 / mo"
+
 				%h2 All Scenes
 
 				.box.panel.panel-default.new
@@ -58,7 +80,7 @@
 											= scene.user.username
 
 								%li.button
-									%a{class: "btn btn-default", onclick: "JavaScript:myScene('#{scene.name}','#{scene.description}','#{@rop}')"} Create Scene
+									%a{class: "btn btn-default btn-m", onclick: "JavaScript:myScene('#{scene.name}','#{scene.description}','#{@rop}')"} Create Scene
 										
 							
 / Tips content

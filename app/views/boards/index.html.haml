@@ -6,16 +6,29 @@
 			/	= image_tag current_user.avatar.url(:thumb), class: "avatar"
 			/	%p= current_user.username
 
+
 			.container
 				%ul.nav.navbar-nav.navbar-left
 					%li
-						= link_to "Scenes", root_path, class: "btn btn-default"
+						- @scenes = Scene.all
+						= link_to scenes_path do 
+							%button.btn.btn-default{type: "button"}
+								Scenes
+								%span.badge.badge-light= "#{@scenes.length}"
 
 					%li
-						= link_to "Boards", boards_path, class: "btn btn-default active"
+						- @boards = Board.all
+						= link_to boards_path do 
+							%button.btn.btn-primary{type: "button"}
+								Boards
+								%span.badge.badge-light= "#{@boards.length}"
 
+				%ul.nav.navbar-nav.navbar-right
 					%li
-						%h4= "#{@boards.length} Boards" 
+						= link_to root_path do 
+							%button.btn.btn-success{type: "button"}
+								Go Premium
+								%span.badge.badge-light= "$10 / month"
 
 		.panel-body
 

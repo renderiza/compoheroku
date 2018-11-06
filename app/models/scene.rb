@@ -14,16 +14,6 @@ class Scene < ApplicationRecord
 	
 	validates_presence_of :name
 
-=begin
-	def repost(user)
-		repost_scene = self.dup
-		repost_scene.user_id = user.id
-		repost_scene.original_scene_id = self.id
-		repost_scene.image = self.image
-		repost_scene.save
-	end
-=end
-
 	def repost(edited_scene, user)
 		repost_scene = self.dup
 		repost_scene.board_id = edited_scene[:board_id]
@@ -38,7 +28,6 @@ class Scene < ApplicationRecord
 	end
 
 	def original_scene
-		#Scene.find(original_scene_id) if is_repost?
 		Scene.find(id: original_scene_id) if is_repost?
 	end
 

@@ -7,48 +7,97 @@
 	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
 %body
-	%nav.navbar.navbar-default
-		.container
-			%ul.nav.navbar-nav.navbar-left
-				%li
-					= link_to root_path do
-						= image_tag "logo.svg"
-				
-				%li.search
-					= text_field_tag :search
-
-			%ul.nav.navbar-nav.navbar-right
-				- if user_signed_in?
-				
-					%li
-						= link_to new_scene_path, class: ""  do
-							.glyphicon.glyphicon-plus.tip{"data-placement" => "bottom", "data-tip" => "tip-new"}
-
-					%li
-						= link_to edit_user_registration_path, class: ""  do
-							.glyphicon.glyphicon-user.tip{"data-placement" => "bottom", "data-tip" => "tip-account"}
-
-					%li
-						= link_to destroy_user_session_path, method: :delete do
-							.glyphicon.glyphicon-log-out.tip{"data-placement" => "bottom", "data-tip" => "tip-logout"}
-				-else
-					%ul.nav.navbar-nav.navbar-right
-						%li= link_to "Sign Up", new_user_registration_path
-						%li= link_to "Log In", new_user_session_path
-
-
 	%nav.navbar.navbar-default.last
-		.container
-			%ul.nav.navbar-nav.navbar-left
-				%li
-					= link_to "Scenes", root_path, class: "btn btn-default"
+		.col-md-8.col-md-offset-2
+			.container
+				%ul.nav.navbar-nav.navbar-left
+					%li
+						= link_to root_path do
+							= image_tag "logo.svg"
+					
+					%li.search
+						= text_field_tag :search
 
-				%li
-					= link_to "Boards", boards_path, class: "btn btn-default"
 
-			%ul.nav.navbar-nav.navbar-right
-				%li
-					= link_to "Go Premium", edit_user_registration_path, class: "btn btn-default"
+
+
+				%ul.nav.navbar-nav.navbar-right
+					- if user_signed_in?
+					
+						%li
+							= link_to new_scene_path, class: ""  do
+								.glyphicon.glyphicon-plus.tip{"data-placement" => "bottom", "data-tip" => "tip-new"}
+
+						/%li
+						/	= link_to edit_user_registration_path, class: ""  do
+						/		.glyphicon.glyphicon-user.tip{"data-placement" => "bottom", "data-tip" => "tip-account"}
+
+						/%li
+						/	= link_to destroy_user_session_path, method: :delete do
+						/		.glyphicon.glyphicon-log-out.tip{"data-placement" => "bottom", "data-tip" => "tip-logout"}
+						
+						/%li.user
+						/	= link_to user_path(current_user.username), class: "small_avatar"  do
+						/		= image_tag current_user.avatar.url(:thumb), class: "small_avatar"
+
+
+
+
+
+						.btn-group
+							%button.btn.btn-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", type: ""}
+								%li.user
+									= link_to user_path(current_user.username), class: "small_avatar"  do
+										= image_tag current_user.avatar.url(:thumb), class: "small_avatar"
+
+							.dropdown-menu.dropdown-menu-right
+								
+								%li.img
+									= link_to user_path(current_user.username), class: "small_avatar"  do
+										
+										= image_tag current_user.avatar.url(:thumb), class: "small_avatar"
+	
+										= current_user.username
+
+										%br/
+
+										= current_user.email
+
+
+									%hr/
+
+								
+
+								%li
+									= link_to edit_user_registration_path, class: ""  do
+										.glyphicon.glyphicon-user
+											Account
+								%li
+									= link_to destroy_user_session_path, method: :delete do
+										.glyphicon.glyphicon-log-out
+											Log-Out
+
+
+
+
+
+
+
+
+
+					-else
+						%ul.nav.navbar-nav.navbar-right
+							%li= link_to "Sign Up", new_user_registration_path
+							%li= link_to "Log In", new_user_session_path
+							
+	
+
+	.container
+		%ul
+			%li.img
+				%h2 Composcene for SketchUp
+			%li.img
+				Composite your own SketchUp renders.
 
 
 	.container
