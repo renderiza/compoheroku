@@ -23,10 +23,17 @@
 $dark: #3d3d3d;
 $white: #F8F8F8;
 
+body {
+    background: #E9E9E9;
+}
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
 
 li.search {
-
      margin-top: 14px;
      margin-left: 8px;
 }
@@ -85,11 +92,6 @@ h4.username {
 }
 
 
-body {
-	background: #E9E9E9;
-}
-
-
 li {
 	list-style: none;
     display: list-item;
@@ -97,10 +99,6 @@ li {
     padding-bottom: 0px;
 }
 
-h4, .h4, h5, .h5, h6, .h6 {
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
 
 a {
     text-decoration: none;
@@ -174,17 +172,17 @@ li.user {
 
 
 .box {
-	list-style: none;
-	text-align: left;
-	font-size: 14px;
-
-	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-	background: #FFFFFF;
+	//list-style: none;
+	//text-align: left;
+	//font-size: 14px;
+    
+    //background: #FFFFFF;
+	//box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
 	border-radius: 0px;
-	margin: 2px;
+
+	margin: 3px;
 	width: 156px;
 	height: 276px;
-
 
 	float: Left;
 

@@ -2,10 +2,70 @@
 	.col-md-8.col-md-offset-2
 		.panel.panel-default
 
+
+			.panel-heading
+				.container
+					%ul.nav.navbar-nav.navbar-left
+						%li
+							= link_to root_path do 
+								%button.btn.btn-primary{type: "button"}
+									Download
+									%span.badge.badge-light= "RBZ"
+
+					%ul.nav.navbar-nav.navbar-right
+						%li
+							= link_to root_path do 
+								%button.btn.btn-success{type: "button"}
+									Go Premium
+									%span.badge.badge-light= "$10 / mo"
+
+
 			.panel-heading
 				/- if current_user
 				/	= image_tag current_user.avatar.url(:thumb), class: "avatar"
 				/	%p= current_user.username
+
+
+
+				.modal-body
+					/ CAROUSEL CODE GOES HERE
+					#myGallery.carousel.slide{"data-interval" => "false"}
+						.carousel-inner
+							.item.active
+								= image_tag("1.png", 
+									alt: "Image description here",           
+									class: "img-responsive")                 
+								.carousel-caption
+									%h3 Composcene for SketchUp
+									%p Composite your own SketchUp renders.
+							.item
+								= image_tag("2.png", 
+									alt: "Image description here",               
+									class: "img-respponsive")                    
+								.carousel-caption
+									%h3 
+									%p 
+							.item
+								= image_tag("3.png", 
+									alt: "Image description here",               
+									class: "img-respponsive")                    
+								.carousel-caption
+									%h3 
+									%p 
+							
+						/ end carousel-inner
+						/ Previous and Next buttons
+						%a.left.carousel-control{"data-slide" => "prev", href: "#myGallery", role: "button"}
+							%span.glyphicon.glyphicon-chevron-left
+						%a.right.carousel-control{"data-slide" => "next", href: "#myGallery", role: "button"}
+							%span.glyphicon.glyphicon-chevron-right
+					/ myGallery
+				/ modal-body
+
+
+			.panel-heading
+
+
 				
 				.container
 					%ul.nav.navbar-nav.navbar-left
@@ -24,10 +84,7 @@
 
 					%ul.nav.navbar-nav.navbar-right
 						%li
-							= link_to root_path do 
-								%button.btn.btn-success{type: "button"}
-									Go Premium
-									%span.badge.badge-light= "$10 / mo"
+			
 
 
 				

@@ -1,7 +1,7 @@
 class ScenesController < ApplicationController
-	before_action :find_scene, only: [:show, :edit, :update, :destroy, :repost]
+	before_action :find_scene, only: [:show, :edit, :update, :destroy, :repost, :export]
 	before_action :authenticate_user!, except: [:index, :show]
-	before_action :correct_user, only: [:edit, :update, :destroy]
+	before_action :correct_user, only: [:edit, :update, :destroy, :export]
 
 	def index
 		@scenes = Scene.all.order("created_at DESC")
@@ -25,6 +25,9 @@ class ScenesController < ApplicationController
 	end
 
 	def edit
+	end
+
+	def export
 	end
 
 	def update

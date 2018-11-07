@@ -92,18 +92,13 @@
 							
 	
 
-	.container
-		%ul
-			%li.img
-				%h2 Composcene for SketchUp
-			%li.img
-				Composite your own SketchUp renders.
-
-
-	.container
-
+	.col-md-8.col-md-offset-2
 		- flash.each do |name, msg|
 			= content_tag :div, msg, class: "alert alert-info"
+
+
+
+	.container
 		= yield
 
 	%br/

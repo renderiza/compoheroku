@@ -61,74 +61,78 @@
 			- @rop = {"shadows" => @scene.shadows,"dark" => @scene.dark,"light" => @scene.light,"sun" => @scene.sun,"fog" => @scene.fog,"bg_color" => @scene.bg_color,"fog_color" => @scene.fog_color,"fog_use_bk" => @scene.fog_use_bk,"color_by_layer" => @scene.color_by_layer,"edge" => @scene.edge,"render_mode" => @scene.render_mode,"sky_color" => @scene.sky_color,"draw_sky" => @scene.draw_sky,"draw_ground" => @scene.draw_ground,"ground_color" => @scene.ground_color,"depth_cue" => @scene.depth_cue,"hidden" => @scene.hidden,"endpoints" => @scene.endpoints,"profiles" => @scene.profiles  }
 
 
-			.panel-body
-				%ul
-					%li
-						%h1= @scene.name
+			.panel-bod
+				.col-md-10.col-md-offset-1
 
+					.row
 
-				%p.description= @scene.description
+						.col-md-3.col-sm-3.col-xs-6
+							%br/
+							%h1= @scene.name
+
+					.row
+						
+						.col-md-12.col-sm-3.col-xs-6
+
+							%p.description= @scene.description
+					
+					%hr/
+
+					.row
+						.col-md-3.col-sm-3.col-xs-6
+							%h4= "View Settings"
+							%p.description= "Hidden Geometry: #{@scene.hidden}" 
+
+						.col-md-3.col-sm-3.col-xs-6
+							%h4= "Shadow Settings"
+							%p.description= "Display Shadows: #{@scene.shadows}"
+							%p.description= "Light: #{@scene.light}"
+							%p.description= "Dark: #{@scene.dark}"
+							%p.description= "Use Sun: #{@scene.sun}"
+					                                          
+						.col-md-3.col-sm-3.col-xs-6
+							%h4= "Edge Settings"
+							%p.description= "Display Edges: #{@scene.edge}"
+							%p.description= "Profiles: #{@scene.profiles}"
+							%p.description= "Depth cue: #{@scene.depth_cue}"
+							%p.description= "Endpoints: #{@scene.endpoints}"
+
+						.col-md-3.col-sm-3.col-xs-6
+							%h4= "Face Settings"
+							- rmode = "Wireframe"   if @scene.render_mode == 0
+							- rmode = "Hidden Edge" if @scene.render_mode == 1
+							- rmode = "Shade"       if @scene.render_mode == 2
+							- rmode = "Textured"    if @scene.render_mode == 3
+							- rmode = "Monochrome"  if @scene.render_mode == 4
+
+							%p.description= "Render Mode: #{rmode}"
+
+					%hr/
+
+					.row
+						.col-md-3.col-sm-3.col-xs-6
+							%h4= "Background Settings"
+							%p.description= "Background Color: #{@scene.bg_color}"
+							%p.description= "Sky Color: #{@scene.sky_color}"
+							%p.description= "Draw Sky: #{@scene.draw_sky}"
+							%p.description= "Ground Color: #{@scene.ground_color}"
+							%p.description= "Draw Ground: #{@scene.draw_ground}"
+
+						.col-md-3.col-sm-3.col-xs-6
+							%h4= "Fog"
+							%p.description= "Display Fog: #{@scene.fog}"
+							%p.description= "Fog Color: #{@scene.fog_color}"
+							%p.description= "Use background color: #{@scene.fog_use_bk}"
+					                                          
+						.col-md-3.col-sm-3.col-xs-6
+							%h4= "Layers"
+							%p.description= "Color by layer: #{@scene.color_by_layer}"
+
+						.col-md-3.col-sm-3.col-xs-6
+
+					%hr/
 				
-				%hr/
-
-				%h4= "View Settings"
-				%p.description= "Hidden Geometry: #{@scene.hidden}"
-
-				%hr/
-
-				%h4= "Shadow Settings"
-				%p.description= "Display Shadows: #{@scene.shadows}"
-				%p.description= "Light: #{@scene.light}"
-				%p.description= "Dark: #{@scene.dark}"
-				%p.description= "Use Sun: #{@scene.sun}"
-				
-				%hr/
-
-				%h4= "Edge Settings"
-				%p.description= "Display Edges: #{@scene.edge}"
-				%p.description= "Profiles: #{@scene.profiles}"
-				%p.description= "Depth cue: #{@scene.depth_cue}"
-				%p.description= "Endpoints: #{@scene.endpoints}"
-				
-				%hr/
-
-				%h4= "Face Settings"
-				- rmode = "Wireframe"   if @scene.render_mode == 0
-				- rmode = "Hidden Edge" if @scene.render_mode == 1
-				- rmode = "Shade"       if @scene.render_mode == 2
-				- rmode = "Textured"    if @scene.render_mode == 3
-				- rmode = "Monochrome"  if @scene.render_mode == 4
-
-				%p.description= "Render Mode: #{rmode}"
-				
-				%hr/
-
-				%h4= "Background Settings"
-				%p.description= "Background Color: #{@scene.bg_color}"
-				%p.description= "Sky Color: #{@scene.sky_color}"
-				%p.description= "Draw Sky: #{@scene.draw_sky}"
-				%p.description= "Ground Color: #{@scene.ground_color}"
-				%p.description= "Draw Ground: #{@scene.draw_ground}"
-
-				%hr/
-
-				%h4= "Fog"
-				%p.description= "Display Fog: #{@scene.fog}"
-				%p.description= "Fog Color: #{@scene.fog_color}"
-				%p.description= "Use background color: #{@scene.fog_use_bk}"
-				
-				%hr/
-				
-				%h4= "Layers"
-				%p.description= "Color by layer: #{@scene.color_by_layer}"
-				
-
-				%hr/
-
-				
-
-
-
+	
 			.panel-footer
 				.row
 					.col-md-12
