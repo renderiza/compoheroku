@@ -17,76 +17,136 @@
 	.form-group
 		= f.input :description, input_htm: { class: 'form-control' }
 
+	%br/
 
-	%h3= "View Settings"
-	.form-group
-		= f.input :hidden, input_htm: { class: 'form-control' }
-	
-	%hr/
 
-	%h3= "Shadow Settings"
-	.form-group
-		= f.input :shadows, input_htm: { class: 'form-control' }
 
-	.form-group
-		= f.input :light, as: :slider, min: 0, max: 100, input_htm: { class: 'form-control' }
+	.container
 
-	.form-group
-		= f.input :dark, as: :slider, min: 0, max: 100, input_htm: { class: 'form-control' }
 
-	.form-group
-		= f.input :sun, input_htm: { class: 'form-control' }
 
-	%hr/
+		%h4= "View Settings"
 
-	%h3= "Edges Settings"
-	.form-group
-		= f.input :edge, input_htm: { class: 'form-control' }
+		%br/
 
-	.form-group
-		= f.input :profiles, input_htm: { class: 'form-control' }
+		.checkbox
+			= f.input :hidden, type: "checkbox"
+		
+		%hr/
 
-	.form-group
-		= f.input :depth_cue, input_htm: { class: 'form-control' }
+		%h4= "Shadow Settings"
+		.form-group
+			= f.input :shadows, input_htm: { class: 'form-control' }
 
-	.form-group
-		= f.input :endpoints, input_htm: { class: 'form-control' }
+		.form-group
+			= f.input :light, as: :slider, min: 0, max: 100, input_htm: { class: 'form-control' }
 
-	%hr/
+		.form-group
+			= f.input :dark, as: :slider, min: 0, max: 100, input_htm: { class: 'form-control' }
 
-	%h3= "Face Settings"
-	.radio
-		= f.input :render_mode, as: :radio_buttons, collection: [['0', 'Wireframe'], ['1', 'Hidden Line'], ['2', 'Shaded'], ['3', 'Textured'], ['4', 'Monochrome']], label_method: :second, value_method: :first
+		.form-group
+			= f.input :sun, input_htm: { class: 'form-control' }
 
-	%hr/
+		%hr/
 
-	%h3= "Background Settings"
-	.form-group
-		= f.input :bg_color, as: :color, input_htm: { class: 'form-control' }
-	.form-group
-		= f.input :sky_color, as: :color, input_htm: { class: 'form-control' }
-	.form-group
-		= f.input :draw_sky, input_htm: { class: 'form-control' }
-	.form-group
-		= f.input :ground_color, as: :color, input_htm: { class: 'form-control' }
-	.form-group
-		= f.input :draw_ground, input_htm: { class: 'form-control' }
+		%h4= "Edges Settings"
 
-	%hr/
+		%br/
 
-	%h3= "Fog Settings"
-	.form-group
-		= f.input :fog, input_htm: { class: 'form-control' }
-	.form-group
-		= f.input :fog_color, as: :color, input_htm: { class: 'form-control' }
-	.form-group
-		= f.input :fog_use_bk, input_htm: { class: 'form-control' }
+		%ul.list-group
+			%li.list-group-item
+				= f.input :edge, input_htm: { class: 'form-control' }
+			%li.list-group-item
+				= f.input :profiles, input_htm: { class: 'form-control' }
+			%li.list-group-item
+				= f.input :depth_cue, input_htm: { class: 'form-control' }
+			%li.list-group-item
+				= f.input :endpoints, input_htm: { class: 'form-control' }
 
-	%hr/
+		%hr/
 
-	%h3= "Layers Settings"
-	.form-group
-		= f.input :color_by_layer, input_htm: { class: 'form-control' }
+		%h4= "Face Settings"
+
+		%br/
+
+		%ul.list-group
+			%li.list-group-item
+				.radio
+					= f.input :render_mode,label: false, as: :radio_buttons, collection: [['0', 'Wireframe'], ['1', 'Hidden Line'], ['2', 'Shaded'], ['3', 'Textured'], ['4', 'Monochrome']], label_method: :second, value_method: :first
+
+		%hr/
+
+		%h4= "Background Settings"
+		
+		%br/
+		.panel-bod
+
+			%ul.list-group
+				%li.list-group-item
+				
+					.row
+						.col-md-2.col-sm-2.col-xs-2
+							
+							%h4 Background
+
+						.col-md-4.col-sm-4.col-xs-4
+							
+							= f.input :bg_color, :label => "", label: false, as: :color, input_htm: { class: 'form-control' }
+							
+				%li.list-group-item
+					.row
+						.col-md-2.col-sm-2.col-xs-2
+							
+							= f.input :draw_sky, :label => "Sky", input_htm: { class: 'form-control' }
+
+						.col-md-4.col-sm-4.col-xs-4
+							
+							= f.input :sky_color, :label => "", label: false, as: :color, input_htm: { class: 'form-control' }
+				
+				%li.list-group-item
+
+					.row
+						.col-md-2.col-sm-2.col-xs-2
+							
+							= f.input :draw_ground, :label => "Ground", input_htm: { class: 'form-control' }
+
+						.col-md-4.col-sm-4.col-xs-4
+							
+							= f.input :ground_color, :label => "", label: false, as: :color, input_htm: { class: 'form-control' }
+
+
+		
+		%hr/
+
+		%h4= "Fog Settings"
+
+		%br/
+
+		.panel-bod
+
+			%ul.list-group
+				%li.list-group-item
+
+					.row
+						.col-md-2.col-sm-2.col-xs-2
+							= f.input :fog, :label => "Fog", input_htm: { class: 'form-control' }
+
+						.col-md-2.col-sm-2.col-xs-2
+							= f.input :fog_color, :label => "", label: false, as: :color, input_htm: { class: 'form-control' }
+
+				%li.list-group-item
+
+					.row
+						.col-md-6.col-sm-6.col-xs-6
+							= f.input :fog_use_bk, :label => "Use Background Color", input_htm: { class: 'form-control' }
+
+		
+
+		%hr/
+
+		%h4= "Layers Settings"
+		.form-group
+			= f.input :color_by_layer, input_htm: { class: 'form-control' }
 
 
 

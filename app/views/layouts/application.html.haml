@@ -7,7 +7,7 @@
 	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
 %body
-	%nav.navbar.navbar-default.last
+	%nav.navbar.navbar-default
 		.col-md-8.col-md-offset-2
 			.container
 				%ul.nav.navbar-nav.navbar-left
@@ -19,8 +19,6 @@
 						= text_field_tag :search
 
 
-
-
 				%ul.nav.navbar-nav.navbar-right
 					- if user_signed_in?
 					
@@ -28,60 +26,67 @@
 							= link_to new_scene_path, class: ""  do
 								.glyphicon.glyphicon-plus.tip{"data-placement" => "bottom", "data-tip" => "tip-new"}
 
-						/%li
-						/	= link_to edit_user_registration_path, class: ""  do
-						/		.glyphicon.glyphicon-user.tip{"data-placement" => "bottom", "data-tip" => "tip-account"}
-
-						/%li
-						/	= link_to destroy_user_session_path, method: :delete do
-						/		.glyphicon.glyphicon-log-out.tip{"data-placement" => "bottom", "data-tip" => "tip-logout"}
-						
-						/%li.user
-						/	= link_to user_path(current_user.username), class: "small_avatar"  do
-						/		= image_tag current_user.avatar.url(:thumb), class: "small_avatar"
-
-
-
-
+					
 
 						.btn-group
-							%button.btn.btn-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", type: ""}
+						
+							%button.btn.btn-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", type: "button"}
 								%li.user
-									= link_to user_path(current_user.username), class: "small_avatar"  do
-										= image_tag current_user.avatar.url(:thumb), class: "small_avatar"
+									= image_tag current_user.avatar.url(:thumb), class: "small_avatar"
+
 
 							.dropdown-menu.dropdown-menu-right
+								.container
+
+									%ul.avatar
+										%li.list-group-item.list-group-item-action.list-group-item-info
+											
+											= link_to user_path(current_user.username), class: "m_avatar"  do
+												
+												.row
+													.col-md-3.col-sm-3.col-xs-3
+														= image_tag current_user.avatar.url(:thumb), class: "m_avatar"
+													.col-md-3.col-sm-3.col-xs-3
+														= current_user.username
+														%p.description= current_user.email
+
+
+									.empty-width &nbsp
+
 								
-								%li.img
-									= link_to user_path(current_user.username), class: "small_avatar"  do
+
+									%ul.list-group
+										%li.list-group-item
+
+											= link_to edit_user_registration_path, class: ""  do
+												.glyphicon.glyphicon-user
+													Account
+									
+										%li.list-group-item
 										
-										= image_tag current_user.avatar.url(:thumb), class: "small_avatar"
-	
-										= current_user.username
+											= link_to destroy_user_session_path, method: :delete do
+												.glyphicon.glyphicon-log-out
+													Sign-Out
 
-										%br/
+									%ul.list-group
 
-										= current_user.email
+										%li.list-group-item
 
+											= link_to root_path, class: ""  do
+												.glyphicon.glyphicon-asterisk
+													License
 
-									%hr/
+										%li.list-group-item
 
-								
-
-								%li
-									= link_to edit_user_registration_path, class: ""  do
-										.glyphicon.glyphicon-user
-											Account
-								%li
-									= link_to destroy_user_session_path, method: :delete do
-										.glyphicon.glyphicon-log-out
-											Log-Out
-
-
-
-
-
-
+											= link_to root_path, class: ""  do
+												.glyphicon.glyphicon-cog
+													Settings
+									
+										%li.list-group-item
+										
+											= link_to root_path, class: "" do
+												.glyphicon.glyphicon-question-sign
+													Help
 
 
 

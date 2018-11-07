@@ -20,18 +20,32 @@
 @import "bootstrap";
 
 //colors
-$dark: #3d3d3d;
-$white: #F8F8F8;
+$darked: #3d3d3d;
+$whited: #F8F8F8;
 
 body {
     background: #E9E9E9;
+    //font-family: Roboto;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 100;
     margin-top: 4px;
     margin-bottom: 4px;
+    font-weight: bold;
 }
+
+
+nav {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+
+
+.empty-width {
+    width: 272px;
+}
+
 
 li.search {
      margin-top: 14px;
@@ -47,22 +61,43 @@ img.avatar {
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
 
-    margin-left: auto;
-    margin-right: auto;
+    //margin-left: auto;
+    //margin-right: auto;
 }
 
 img.small_avatar {
-        width: 32px;
-        height: 32px;
-        background-size: cover;
-        display: block;
-        border-radius: 100px;
-        -webkit-border-radius: 100px;
-        -moz-border-radius: 100px;
-        //margin-right: 4px;
-        margin-left: 8px;
-        //margin-top: 8px;
-    }
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    display: block;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    margin-left: 8px;
+}
+
+img.m_avatar {
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    display: block;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    //margin-right: 4px;
+    margin-left: 8px;
+    //margin-top: 8px;
+}
+
+
+ul.avatar {
+    margin-left: 0px;
+    padding-left: 0px; 
+}
+li.avatar {
+    margin-left: 0px;
+}
+
 
 li.img {
     text-align: center;
@@ -136,30 +171,6 @@ li.user {
 
 }
 
-.navbar {
-    position: relative;
-    min-height: 50px;
-    margin-bottom: 0px;
-    border: 1px solid transparent;
-}
-
-.navbar-default.last {
-    background-color: #f8f8f8;
-    border-color: #f8f8f8;
-
-    margin-bottom: 32px;
-}
-
-
-.navbar-nav > li > a {
-	margin: 2px;
-	padding-left: 4px;
-	padding-right: 4px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    line-height: 20px;
-    float: Left;
-}
 
 .container {
     margin-right: 0px;
@@ -171,6 +182,9 @@ li.user {
 
 
 
+
+
+
 .box {
 	//list-style: none;
 	//text-align: left;
@@ -178,13 +192,11 @@ li.user {
     
     //background: #FFFFFF;
 	//box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-	border-radius: 0px;
-
-	margin: 3px;
+	float: Left;
 	width: 156px;
 	height: 276px;
-
-	float: Left;
+    margin: 3px;
+	border-radius: 0px;
 
 	&:hover {
 		padding: 1px;
@@ -308,6 +320,9 @@ li.user {
     text-decoration: none;
 }
 
+
+
+
 .tip {
     opacity: .40;
     transition: opacity 1s;
@@ -323,20 +338,13 @@ li.user {
     opacity: 1;
 }
 
-input[type="radio"], input[type="checkbox"] {
-    margin: 0px 0 0;
-    margin-top: 0px;
-    line-height: normal;
-}
+
 
 .radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
-    position: absolute;
     margin-left: 0px;
     margin-top: 0px;
-
     width: 16px;
-
-    float: Left;
+  
 }
 
 .radio label, .checkbox label {
@@ -348,11 +356,19 @@ input[type="radio"], input[type="checkbox"] {
     margin-top: 8px;
 }
 
+
+
+
+input[type="checkbox"] {
+    width: 16px;
+    cursor: pointer;
+    float: Left;
+}
+
+
+
 hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: 0;
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid #cdcdcd;
 }
 
 footer {
@@ -364,8 +380,8 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: $white;
-    color: $dark;
+    background-color: $whited;
+    color: $darked;
     text-align: center;
     z-index: 100;
 }
