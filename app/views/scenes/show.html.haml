@@ -1,3 +1,5 @@
+- @rop = {"shadows" => @scene.shadows,"dark" => @scene.dark,"light" => @scene.light,"sun" => @scene.sun,"fog" => @scene.fog,"bg_color" => @scene.bg_color,"fog_color" => @scene.fog_color,"fog_use_bk" => @scene.fog_use_bk,"color_by_layer" => @scene.color_by_layer,"edge" => @scene.edge,"render_mode" => @scene.render_mode,"sky_color" => @scene.sky_color,"draw_sky" => @scene.draw_sky,"draw_ground" => @scene.draw_ground,"ground_color" => @scene.ground_color,"depth_cue" => @scene.depth_cue,"hidden" => @scene.hidden,"endpoints" => @scene.endpoints,"profiles" => @scene.profiles  }
+
 #scene_show.row
 	.col-md-8.col-md-offset-2
 		.panel.panel-default
@@ -56,9 +58,6 @@
 							%li.img
 								%a{class: "btn btn-primary btn-lg", onclick: "JavaScript:myScene('#{@scene.name}','#{@scene.description}','#{@rop}')"} Create Scene
 
-
-
-			- @rop = {"shadows" => @scene.shadows,"dark" => @scene.dark,"light" => @scene.light,"sun" => @scene.sun,"fog" => @scene.fog,"bg_color" => @scene.bg_color,"fog_color" => @scene.fog_color,"fog_use_bk" => @scene.fog_use_bk,"color_by_layer" => @scene.color_by_layer,"edge" => @scene.edge,"render_mode" => @scene.render_mode,"sky_color" => @scene.sky_color,"draw_sky" => @scene.draw_sky,"draw_ground" => @scene.draw_ground,"ground_color" => @scene.ground_color,"depth_cue" => @scene.depth_cue,"hidden" => @scene.hidden,"endpoints" => @scene.endpoints,"profiles" => @scene.profiles  }
 
 
 			.panel-bod

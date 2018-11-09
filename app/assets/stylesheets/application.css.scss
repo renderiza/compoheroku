@@ -373,6 +373,21 @@ hr {
 
 footer {
     box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.22);
+    //position: fixed;
+    //padding-top: 8px;
+    //padding-bottom: 8px;
+
+    //left: 0;
+    //bottom: 0;
+    //width: 100%;
+    background-color: $whited;
+    //color: $darked;
+    //text-align: center;
+    z-index: 100;
+}
+
+footer.stick {
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.22);
     position: fixed;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -395,8 +410,6 @@ footer {
 .footer_image:hover {
     opacity: 1;
 }
-
-
 
 
 

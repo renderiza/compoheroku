@@ -11,17 +11,16 @@
 	.form-group
 		= f.input :image, input_htm: { class: 'form-control' }
 
-	.form-group
-		= f.input :name, input_htm: { class: 'form-control' }
-
-	.form-group
-		= f.input :description, input_htm: { class: 'form-control' }
-
-	%br/
-
-
-
 	.container
+
+		%ul.list-group
+			%li.list-group-item
+
+				.form-group
+					= f.input :name, input_htm: { class: 'form-control' }
+
+				.form-group
+					= f.input :description, input_htm: { class: 'form-control' }
 
 
 
@@ -29,27 +28,35 @@
 
 		%br/
 
-		.checkbox
-			= f.input :hidden, type: "checkbox"
+		%ul.list-group
+			%li.list-group-item
+
+				.form-group
+					= f.input :hidden, input_htm: { class: 'form-control' }
 		
 		%hr/
 
 		%h4= "Shadow Settings"
-		.form-group
-			= f.input :shadows, input_htm: { class: 'form-control' }
 
-		.form-group
-			= f.input :light, as: :slider, min: 0, max: 100, input_htm: { class: 'form-control' }
+		%br/
 
-		.form-group
-			= f.input :dark, as: :slider, min: 0, max: 100, input_htm: { class: 'form-control' }
+		%ul.list-group
+			%li.list-group-item
+				.form-group
+					= f.input :shadows, :label => "Show / Hide Shadows", input_htm: { class: 'form-control' }
 
-		.form-group
-			= f.input :sun, input_htm: { class: 'form-control' }
+				.form-group
+					= f.input :light, as: :slider, min: 0, max: 100, input_htm: { class: 'form-control' }
+
+				.form-group
+					= f.input :dark, as: :slider, min: 0, max: 100, input_htm: { class: 'form-control' }
+
+				.form-group
+					= f.input :sun, :label => "Use sun for shading", input_htm: { class: 'form-control' }
 
 		%hr/
 
-		%h4= "Edges Settings"
+		%h4= "Edge Settings"
 
 		%br/
 
@@ -144,20 +151,30 @@
 
 		%hr/
 
-		%h4= "Layers Settings"
-		.form-group
-			= f.input :color_by_layer, input_htm: { class: 'form-control' }
+		%h4= "Layer Settings"
 
-
-
-
-
-	%hr/
-	.form-group
-		= f.label :board
 		%br/
-		= f.select :board_id, options_from_collection_for_select(current_user.boards, "id", "name")
-	
+
+		%ul.list-group
+			%li.list-group-item
+				.form-group
+					= f.input :color_by_layer, input_htm: { class: 'form-control' }
+
+		%hr/
+
+		%h4= "Board Settings"
+
+		%br/
+
+		%ul.list-group
+			%li.list-group-item
+				.form-group
+					= f.label :board
+		
+					%br/
+
+					= f.select :board_id, options_from_collection_for_select(current_user.boards, "id", "name")
+
 	%br/
 	%br/
 	= f.button :submit, class: "btn btn-primary"

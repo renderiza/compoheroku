@@ -106,14 +106,15 @@
 	.container
 		= yield
 
-	%br/
-	%br/
-	%br/
+
+
+%br/
+%br/
+%br/
 
 
 / Footer
-%footer
-	/ Copyright
-	.footer-copyright.text-center.py-3
+%footer.stick
+	.footer.stick.text-center.py-3
 		= link_to "https://composcene.com/", :target => "_blank", class: "footer_image"  do
 			= image_tag "compo.svg"
