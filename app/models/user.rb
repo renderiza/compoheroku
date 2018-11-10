@@ -21,4 +21,15 @@ class User < ApplicationRecord
 
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+
+	has_one :export
+
+	after_save do |user| 
+		@export = Export.new
+
+		@export.user_id = user.id
+
+		@export.save
+	end
+	
 end

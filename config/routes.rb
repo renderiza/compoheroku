@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
 	resources :boards 
 
+	resources :exports
+
 	get ':username' => 'users#show', as: 'user'
 	root "scenes#index"
 end

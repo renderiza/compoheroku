@@ -59,6 +59,21 @@
 								%a{class: "btn btn-primary btn-lg", onclick: "JavaScript:myScene('#{@scene.name}','#{@scene.description}','#{@rop}')"} Create Scene
 
 
+				%hr/
+
+
+				= simple_form_for current_user.export do |f|
+				
+					.form-group
+						= f.input :width, input_htm: { class: 'form-control' }
+
+					.form-group
+						= f.input :height, input_htm: { class: 'form-control' }
+
+
+					= f.button :submit, class: "btn btn-primary"
+
+
 
 			.panel-bod
 				.col-md-10.col-md-offset-1
@@ -74,7 +89,6 @@
 						.col-md-12.col-sm-12.col-xs-12
 
 							%p.description= @scene.description
-					
 					%hr/
 
 					.row

@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181102040006) do
+ActiveRecord::Schema.define(version: 20181110055636) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "exports", force: :cascade do |t|
+    t.integer  "width",      default: 1024
+    t.integer  "height",     default: 768
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_exports_on_user_id"
   end
 
   create_table "scenes", force: :cascade do |t|
