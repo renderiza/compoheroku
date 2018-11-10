@@ -79,53 +79,86 @@
 
 					.row
 						.col-md-3.col-sm-3.col-xs-6
-							%h4= "View Settings"
-							%p.description= "Hidden Geometry: #{@scene.hidden}" 
+							%ul.list-group
+								%li.list-group-item
+									%h4= "View Settings"
+								%li.list-group-item
+									%p.description= "Hidden Geometry: #{@scene.hidden}" 
 
 						.col-md-3.col-sm-3.col-xs-6
-							%h4= "Shadow Settings"
-							%p.description= "Display Shadows: #{@scene.shadows}"
-							%p.description= "Light: #{@scene.light}"
-							%p.description= "Dark: #{@scene.dark}"
-							%p.description= "Use Sun: #{@scene.sun}"
+							%ul.list-group
+								%li.list-group-item
+									%h4= "Shadow Settings"
+								%li.list-group-item
+									%p.description= "Display Shadows: #{@scene.shadows}"
+								%li.list-group-item
+									%p.description= "Light: #{@scene.light}"
+								%li.list-group-item
+									%p.description= "Dark: #{@scene.dark}"
+								%li.list-group-item
+									%p.description= "Use Sun: #{@scene.sun}"
 					                                          
 						.col-md-3.col-sm-3.col-xs-6
-							%h4= "Edge Settings"
-							%p.description= "Display Edges: #{@scene.edge}"
-							%p.description= "Profiles: #{@scene.profiles}"
-							%p.description= "Depth cue: #{@scene.depth_cue}"
-							%p.description= "Endpoints: #{@scene.endpoints}"
+							%ul.list-group
+								%li.list-group-item
+									%h4= "Edge Settings"
+								%li.list-group-item
+									%p.description= "Display Edges: #{@scene.edge}"
+								%li.list-group-item
+									%p.description= "Profiles: #{@scene.profiles}"
+								%li.list-group-item
+									%p.description= "Depth cue: #{@scene.depth_cue}"
+								%li.list-group-item
+									%p.description= "Endpoints: #{@scene.endpoints}"
 
 						.col-md-3.col-sm-3.col-xs-6
-							%h4= "Face Settings"
 							- rmode = "Wireframe"   if @scene.render_mode == 0
 							- rmode = "Hidden Edge" if @scene.render_mode == 1
 							- rmode = "Shade"       if @scene.render_mode == 2
 							- rmode = "Textured"    if @scene.render_mode == 3
 							- rmode = "Monochrome"  if @scene.render_mode == 4
-
-							%p.description= "Render Mode: #{rmode}"
+							
+							%ul.list-group
+								%li.list-group-item
+									%h4= "Face Settings"
+								%li.list-group-item
+									%p.description= "Render Mode: #{rmode}"
 
 					%hr/
 
 					.row
 						.col-md-3.col-sm-3.col-xs-6
-							%h4= "Background Settings"
-							%p.description= "Background Color: #{@scene.bg_color}"
-							%p.description= "Sky Color: #{@scene.sky_color}"
-							%p.description= "Draw Sky: #{@scene.draw_sky}"
-							%p.description= "Ground Color: #{@scene.ground_color}"
-							%p.description= "Draw Ground: #{@scene.draw_ground}"
+							%ul.list-group
+								%li.list-group-item
+									%h4= "Background Settings"
+								%li.list-group-item
+									%p.description= "Background Color: #{@scene.bg_color}"
+								%li.list-group-item
+									%p.description= "Sky Color: #{@scene.sky_color}"
+								%li.list-group-item
+									%p.description= "Draw Sky: #{@scene.draw_sky}"
+								%li.list-group-item
+									%p.description= "Ground Color: #{@scene.ground_color}"
+								%li.list-group-item
+									%p.description= "Draw Ground: #{@scene.draw_ground}"
 
 						.col-md-3.col-sm-3.col-xs-6
-							%h4= "Fog"
-							%p.description= "Display Fog: #{@scene.fog}"
-							%p.description= "Fog Color: #{@scene.fog_color}"
-							%p.description= "Use background color: #{@scene.fog_use_bk}"
+							%ul.list-group
+								%li.list-group-item
+									%h4= "Fog"
+								%li.list-group-item
+									%p.description= "Display Fog: #{@scene.fog}"
+								%li.list-group-item
+									%p.description= "Fog Color: #{@scene.fog_color}"
+								%li.list-group-item
+									%p.description= "Use background color: #{@scene.fog_use_bk}"
 					                                          
 						.col-md-3.col-sm-3.col-xs-6
-							%h4= "Layers"
-							%p.description= "Color by layer: #{@scene.color_by_layer}"
+							%ul.list-group
+								%li.list-group-item
+									%h4= "Layers"
+								%li.list-group-item
+									%p.description= "Color by layer: #{@scene.color_by_layer}"
 
 						.col-md-3.col-sm-3.col-xs-6
 

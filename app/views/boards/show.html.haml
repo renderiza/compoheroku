@@ -10,17 +10,12 @@
 				%p= @board.user.bio
 
 			.panel-body
-				/.btn-group.pull-left
-				/	%h4= "#{@board.user.username} > #{@board.name}"
-
 				%nav{"aria-label" => "breadcrumb"}
 					%ol.breadcrumb
 						%li.breadcrumb-item
 							= link_to user_path(@board.user.username), class: "username"  do
 								= @board.user.username
-					
 						%li.breadcrumb-item.active{"aria-current" => "page"} #{@board.name}
-
 
 				.btn-group.pull-right
 					= link_to "Create All Scenes in SketchUp", :back, class: "btn btn-default"
@@ -32,7 +27,7 @@
 
 				- @board.scenes.each do |scene|
 					.box.panel.panel-default
-						
+					
 						%audio#audio{:src => audio_path("pick.wav")}
 						/%a{:href => "JavaScript:play()"}
 						/	=image_tag( scene.image.url(:thumb), :onclick => "myScene('#{scene.name}','#{scene.description}')" )
@@ -56,25 +51,15 @@
 							%li.button
 								%a{class: "btn btn-default", onclick: "JavaScript:play()"} Create Scene
 
-						
-						/%h4= link_to scene.name, scene
-						/%small Posted in "#{scene.board.name}"
-
-
 			.panel-footer
 				.row
 					.col-md-12
 						.btn-group.pull-right
-					
 							= link_to "Back", :back, class: "btn btn-default"
 
-
 							- if @board.user == current_user
-
 								= link_to 'Edit', edit_board_path(@board), class: "btn btn-default"
-
 								= link_to 'Delete', @board, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default"
-								
 
 / Tips content
 #tip-new.tip-content.hidden
