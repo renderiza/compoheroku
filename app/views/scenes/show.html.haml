@@ -61,17 +61,19 @@
 
 				%hr/
 
-
-				= simple_form_for current_user.export do |f|
 				
-					.form-group
-						= f.input :width, input_htm: { class: 'form-control' }
+				%ul.list-group
+					%li.list-group-item
+						= simple_form_for current_user.export do |f|
+						
+							.form-group
+								= f.input :width, input_htm: { class: 'form-control' }
 
-					.form-group
-						= f.input :height, input_htm: { class: 'form-control' }
+							.form-group
+								= f.input :height, input_htm: { class: 'form-control' }
 
 
-					= f.button :submit, class: "btn btn-primary"
+							= f.button :submit, class: "btn btn-primary"
 
 
 
