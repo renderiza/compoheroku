@@ -62,35 +62,35 @@
 				%hr/
 
 				
-				%ul.list-group
-					%li.list-group-item
-						= simple_form_for current_user.export do |f|
-						
-							.form-group
-								= f.input :width, input_htm: { class: 'form-control' }
+				- if @scene.user == current_user
+					%ul.list-group
+						%li.list-group-item
+							= simple_form_for current_user.export do |f|
+							
+								.form-group
+									= f.input :width, input_htm: { class: 'form-control' }
 
-							.form-group
-								= f.input :height, input_htm: { class: 'form-control' }
+								.form-group
+									= f.input :height, input_htm: { class: 'form-control' }
 
-
-							= f.button :submit, class: "btn btn-primary"
-
-
+								= f.button :submit, class: "btn btn-primary"
+					
+					
+				-else
+					%ul.list-group
+						%li.list-group-item
+							%p Log In to edit export settings
 
 			.panel-bod
-				.col-md-10.col-md-offset-1
-
+				.col-md-12.col-sm-12.col-xs-12
 					.row
-
 						.col-md-3.col-sm-3.col-xs-6
 							%br/
 							%h1= @scene.name
-
 					.row
-						
 						.col-md-12.col-sm-12.col-xs-12
-
 							%p.description= @scene.description
+
 					%hr/
 
 					.row
@@ -100,7 +100,6 @@
 									%h4= "View Settings"
 								%li.list-group-item
 									%p.description= "Hidden Geometry: #{@scene.hidden}" 
-
 						.col-md-3.col-sm-3.col-xs-6
 							%ul.list-group
 								%li.list-group-item
@@ -113,7 +112,6 @@
 									%p.description= "Dark: #{@scene.dark}"
 								%li.list-group-item
 									%p.description= "Use Sun: #{@scene.sun}"
-					                                          
 						.col-md-3.col-sm-3.col-xs-6
 							%ul.list-group
 								%li.list-group-item
@@ -126,20 +124,17 @@
 									%p.description= "Depth cue: #{@scene.depth_cue}"
 								%li.list-group-item
 									%p.description= "Endpoints: #{@scene.endpoints}"
-
 						.col-md-3.col-sm-3.col-xs-6
 							- rmode = "Wireframe"   if @scene.render_mode == 0
 							- rmode = "Hidden Edge" if @scene.render_mode == 1
 							- rmode = "Shade"       if @scene.render_mode == 2
 							- rmode = "Textured"    if @scene.render_mode == 3
 							- rmode = "Monochrome"  if @scene.render_mode == 4
-							
 							%ul.list-group
 								%li.list-group-item
 									%h4= "Face Settings"
 								%li.list-group-item
 									%p.description= "Render Mode: #{rmode}"
-
 					%hr/
 
 					.row
